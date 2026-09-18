@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "title": "Herrar"
+    },
+    {
+      "id": "2",
+      "title": "Damer"
+    },
+    {
+      "id": "3",
+      "title": "Sverige"
+    },
+    {
+      "id": "4",
+      "title": "Spanien"
+    },
+    {
+      "id": "5",
+      "title": "England"
+    },
+    {
+      "id": "6",
+      "title": "Frankrike"
+    },
+    {
+      "id": "7",
+      "title": "Anfallare"
+    },
+    {
+      "id": "8",
+      "title": "Mittfältare"
+    },
+    {
+      "id": "9",
+      "title": "Försvarare"
+    },
+    {
+      "id": "10",
+      "title": "Målvakter"
+    }
+  ]
+}
