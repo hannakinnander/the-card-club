@@ -40,5 +40,527 @@
       "id": "10",
       "title": "Målvakter"
     }
+  ],
+
+  "products": [
+    {
+      "title": "Alexander Isak",
+      "description": "Alexander Isak, född 21 september 1999 i Solna,är en svensk fotbollsspelare som spelar för Liverpool FC i Premier League och det svenska landslaget.",
+      "price": 500,
+      "category": ["3", "1", "7"],
+      "onSale": false,
+      "img": "isak.webp",
+      "inventory": 8,
+      "id": "2"
+    },
+    {
+      "title": "Viktor Gyökeres",
+      "description": "Viktor Einar Gyökeres, född 4 juni 1998 i Stockholm,är en svensk fotbollsspelare som spelar för Arsenal i Premier League och det svenska landslaget",
+      "price": 400,
+      "category": ["3", "1", "7"],
+      "onSale": true,
+      "img": "gyokeres.webp",
+      "inventory": 5,
+      "id": "4"
+    },
+    {
+      "title": "Anthony Elanga",
+      "description": "Anthony David Junior Elanga, född 27 april 2002 i Hyllie, Malmö, är en svensk fotbollsspelare som spelar för Newcastle United i Premier League. Han representerar även det svenska landslaget. Han startade sin karriär i IF Elfsborg. Elanga är son till den förre MFF-spelaren Joseph Elanga ",
+      "price": 300,
+      "category": ["3", "1", "7"],
+      "onSale": "no",
+      "img": "elanga.webp",
+      "inventory": 10,
+      "id": "6"
+    },
+
+    {
+      "title": "Dejan Kulusevski",
+      "description": "Dejan Kulusevski, född 25 april 2000 i Spånga i Stockholm,[1] är en svensk fotbollsspelare som spelar för Tottenham Hotspur i Premier League och Sveriges herrlandslag i fotboll. Åren 2022 och 2023 tilldelades Kulusevski Guldbollen",
+      "price": 350,
+      "category": ["3", "1", "8"],
+      "onSale": "no",
+      "img": "kulusevski.webp",
+      "inventory": 9,
+      "id": "8"
+    },
+    {
+      "title": "Yasin Ayari",
+      "description": "Yasin Abbas Ayari, född 6 oktober 2003 i Solna, är en svensk fotbollsspelare. Han spelar för Brighton & Hove Albion i Premier League och för det svenska landslaget. Ayari är äldre bror till fotbollsspelaren Taha Ayari.",
+      "price": 450,
+      "category": ["3", "1", "8"],
+      "onSale": "no",
+      "img": "ayari.webp",
+      "inventory": 7,
+      "id": "10"
+    },
+    {
+      "title": "Lucas Bergvall",
+      "description": "Lucas Erik Holger Bergvall, född 2 februari 2006 i Stockholm, är en svensk fotbollsspelare som spelar för Tottenham Hotspur i Premier League och det svenska landslaget ",
+      "price": 350,
+      "category": ["3", "1", "8"],
+      "onSale": "yes",
+      "img": "bergvall.webp",
+      "inventory": 10,
+      "id": "12"
+    },
+
+    {
+      "title": "Daniel Svensson",
+      "description": "Daniel Jonathan Svensson, född 12 februari 2002, är en svensk fotbollsspelare som spelar för Borussia Dortmund och det svenska landslaget. ",
+      "price": 200,
+      "category": ["3", "1", "9"],
+      "onSale": "no",
+      "img": "svensson.webp",
+      "inventory": 4,
+      "id": "14"
+    },
+
+    {
+      "title": "Isak Hien",
+      "description": "Isak Malcolm Kwaku Hien, född 13 januari 1999 i Kista församling, Stockholms län, är en svensk fotbollsspelare som spelar för Atalanta i Serie A och det svenska landslaget.",
+      "price": 400,
+      "category": ["3", "1", "9"],
+      "onSale": "no",
+      "img": "hien.webp",
+      "inventory": 2,
+      "id": "16"
+    },
+
+    {
+      "title": "Gabriel Gudmundsson",
+      "description": "Gabriel Johan Gudmundsson, född 29 april 1999 i Limhamns församling, Skåne län, är en svensk fotbollsspelare som spelar för Leeds United i Premier League. ",
+      "price": null,
+      "category": ["3", "1", "9"],
+      "onSale": "no",
+      "img": "gudmundsson.wsp",
+      "inventory": 3,
+      "id": "18"
+    },
+
+    {
+      "title": "Viktor Johansson",
+      "description": "Viktor Tobias Johansson, född 14 september 1998, är en svensk fotbollsmålvakt som spelar för Stoke City i engelska andraligan EFL Championship. Han representerar även det svenska landslaget. ",
+      "price": 250,
+      "category": ["3", "1", "10"],
+      "onSale": "no",
+      "img": "johansson.wsp",
+      "inventory": 8,
+      "id": "20"
+    },
+    {
+      "title": "Noel Törnqvist",
+      "description": "Noel Max Joachim Törnqvist, född 1 februari 2002, är en svensk fotbollsspelare som spelar för italienska Como. ",
+      "price": 200,
+      "category": ["3", "1", "10"],
+      "onSale": "yes",
+      "img": "tornqvist.wsp",
+      "inventory": 9,
+      "id": "22"
+    },
+    {
+      "title": "Jacob Widel Zetterström",
+      "description": "Jacob Mikael Widell Zetterström, född 11 juli 1998, är en svensk fotbollsmålvakt som spelar för Derby County i Championship och i svenska landslaget. Han spelade två matcher under VM i fotboll 2026. ",
+      "price": 150,
+      "category": ["3", "1", "10"],
+      "onSale": "no",
+      "img": "zetterstrom.wsp",
+      "inventory": 10,
+      "id": "24"
+    },
+
+    {
+      "title": "Lamine Yamal",
+      "description": "Lamine Yamal Nasraoui Ebana, född 13 juli 2007 i Esplugues de Llobregat i Barcelona, är en spansk fotbollsspelare. Han spelar som högerytter för La Liga-klubben Barcelona och det spanska landslaget. Lamine Yamal är hans förnamn. ",
+      "price": 1000,
+      "category": ["4", "1", "7"],
+      "onSale": "no",
+      "img": "yamal.wsp",
+      "inventory": 1,
+      "id": "26"
+    },
+
+    {
+      "title": "Ferran Torres",
+      "description": "Ferran Torres García, född 29 februari 2000 i Foios, är en spansk fotbollsspelare som spelar för Paris Saint-Germain i Ligue 1 och det spanska landslaget. Med landslaget vann han EM-guld 2024 och blev sedan världsmästare 2026 efter att ha gjort det avgörande målet i VM-finalen mot Argentina. ",
+      "price": 1,
+      "category": ["4", "1", "7"],
+      "onSale": "no",
+      "img": "torres.wsp",
+      "inventory": 10,
+      "id": "28"
+    },
+
+    {
+      "title": "Oyarzabal",
+      "description": "Mikel Oyarzabal Ugarte, född 21 april 1997 i Eibar, är en spansk fotbollsspelare som spelar för spanska Real Sociedad. Han representerar även Spaniens landslag. Den 14 juli 2024 gjorde Oyarzabal 2–1-målet för Spanien i EM-finalen mot England när hans lag säkrade EM-guld. ",
+      "price": 700,
+      "category": ["4", "1", "7"],
+      "onSale": "no",
+      "img": "oyarzabal.wsp",
+      "inventory": 6,
+      "id": "30"
+    },
+
+    {
+      "title": "Rodri",
+      "description": "Rodrigo Hernández Cascante, mer känd som Rodri eller Rodrigo, född 22 juni 1996 i Madrid, Spanien, är en spansk fotbollsspelare som spelar för FC Barcelona i La Liga och är kapten för Spaniens landslag. År 2024 belönades Rodri med priset Ballon d'Or som årligen delas ut till världens bästa fotbollsspelare. ",
+      "price": 800,
+      "category": ["4", "1", "8"],
+      "onSale": "no",
+      "img": "rodri.wsp",
+      "inventory": 3,
+      "id": "32"
+    },
+
+    {
+      "title": "Pedri",
+      "description": "Pedro González López, född 25 november 2002 i Tegueste på Teneriffa, känd som Pedri, är en spansk fotbollsspelare som spelar för Barcelona och det spanska landslaget. ",
+      "price": 950,
+      "category": ["4", "1", "8"],
+      "onSale": "no",
+      "img": "pedri.wsp",
+      "inventory": 2,
+      "id": "34"
+    },
+
+    {
+      "title": "Fabián Ruiz",
+      "description": "Spelaren följer den spanska namnseden; faderns efternamn är Ruiz och moderns efternamn Peña. Fabián Ruiz Peña, mer känd som endast Fabián, född 3 april 1996, är en spansk fotbollsspelare som spelar för Paris Saint-Germain.  ",
+      "price": 700,
+      "category": ["4", "1", "8"],
+      "onSale": "yes",
+      "img": "ruiz.wsp",
+      "inventory": 5,
+      "id": "36"
+    },
+
+    {
+      "title": "Pau Cubarsí",
+      "description": "Pau Cubarsí Paredes, född 22 januari 2007 i Estanyol, är en spansk professionell fotbollsspelare, som spelar för La Liga-klubben FC Barcelona och det spanska landslaget. ",
+      "price": 900,
+      "category": ["4", "1", "9"],
+      "onSale": "no",
+      "img": "cubarsi.wsp",
+      "inventory": 4,
+      "id": "38"
+    },
+
+    {
+      "title": "Cucurella",
+      "description": "Marc Cucurella, född 22 juli 1998 i Alella, är en spansk fotbollsspelare som spelar för Real Madrid och Spaniens landslag. ",
+      "price": 650,
+      "category": ["4", "1", "9"],
+      "onSale": "no",
+      "img": "cucurella.wsp",
+      "inventory": 4,
+      "id": "40"
+    },
+
+    {
+      "title": "Marcos Llorente",
+      "description": "Marcos Llorente Moreno, född 30 januari 1995 i Madrid, är en spansk fotbollsspelare som spelar för Atlético Madrid. Llorentes familj har en rik historia med Real Madrid och har band till både fotboll och klubben. ",
+      "price": 780,
+      "category": ["4", "1", "9"],
+      "onSale": "no",
+      "img": "llorente.wsp",
+      "inventory": 6,
+      "id": "42"
+    },
+
+    {
+      "title": "David Raya",
+      "description": "Artikeln följer den spanska namnseden; faderns efternamn är Raya och moderns efternamn Martín. David Raya Martín, född 15 september 1995, är en spansk fotbollsmålvakt som spelar för Arsenal. ",
+      "price": 760,
+      "category": ["4", "1", "10"],
+      "onSale": "yes",
+      "img": "raya.wsp",
+      "inventory": 5,
+      "id": "44"
+    },
+
+    {
+      "title": "Joan Garcia",
+      "description": "Joan García Pons, född 4 maj 2001 i Sallent, är en spansk fotbollsspelare som är målvakt för La Liga klubben FC Barcelona.",
+      "price": 800,
+      "category": ["4", "1", "10"],
+      "onSale": "no",
+      "img": "garcia.wsp",
+      "inventory": 4,
+      "id": "46"
+    },
+    {
+      "title": "Unai Simón",
+      "description": "Unai Simón, född 11 juni 1997 i Vitoria-Gasteiz i Baskien, är en spansk fotbollsspelare som spelar för Athletic Bilbao och Spaniens landslag. ",
+      "price": 680,
+      "category": ["4", "1", "10"],
+      "onSale": "no",
+      "img": "simon.wsp",
+      "inventory": 4,
+      "id": "48"
+    },
+    {
+      "title": "Harry Kane",
+      "description": "Harry Edward Kane MBE, född 28 juli 1993 i Leytonstone i London, är en engelsk professionell fotbollsspelare som spelar för det tyska Bundesliga-laget Bayern München. Kane tog sin väg genom ungdomsleden i Tottenham Hotspur innan hans a-lagsdebut för Tottenham kom den 25 augusti 2011 i Europacup-matchen mot Hearts. ",
+      "price": 800,
+      "category": ["5", "1", "7"],
+      "onSale": "yes",
+      "img": "kane.wsp",
+      "inventory": 6,
+      "id": "50"
+    },
+
+    {
+      "title": "Bukayo Saka",
+      "description": "Bukayo Saka, född 5 september 2001 i Ealing, London, är en engelsk fotbollsspelare. Han spelar huvudsakligen som anfallsspelare/mittfältare till vänster eller höger för Premier League-klubben Arsenal, där han även är vice-kapten. Saka representerar även det engelska herrlandslaget. ",
+      "price": 760,
+      "category": ["5", "1", "7"],
+      "onSale": "no",
+      "img": "saka.wsp",
+      "inventory": 6,
+      "id": "52"
+    },
+
+    {
+      "title": "Ivan Toney",
+      "description": "Ivan Benjamin Elijah Toney, född 16 mars 1996, är en engelsk fotbollsspelare som spelar för Al-Ahli. ",
+      "price": 500,
+      "category": ["5", "1", "7"],
+      "onSale": "yes",
+      "img": "toney.wsp",
+      "inventory": 9,
+      "id": "54"
+    },
+
+    {
+      "title": "Jude Bellingham",
+      "description": "Jude Victor William Bellingham, född 29 juni 2003 i Stourbridge, England, är en engelsk fotbollsspelare som spelar för Real Madrid i La Liga och det engelska landslaget. ",
+      "price": 960,
+      "category": ["5", "1", "8"],
+      "onSale": "no",
+      "img": "bellingham.wsp",
+      "inventory": 3,
+      "id": "56"
+    },
+
+    {
+      "title": "Declan Rice",
+      "description": "Declan Rice, född 14 januari 1999, är en irländsk/engelsk fotbollsspelare som spelar för Arsenal. Han representerar även Englands landslag. ",
+      "price": 500,
+      "category": ["5", "1", "8"],
+      "onSale": "no",
+      "img": "rice.wsp",
+      "inventory": 8,
+      "id": "58"
+    },
+
+    {
+      "title": "Cole Palmer",
+      "description": "Cole Jermaine Palmer, född 6 maj 2002 i Manchester, England, är en engelsk fotbollsspelare som spelar för Chelsea i Premier League.  ",
+      "price": 690,
+      "category": ["5", "1", "8"],
+      "onSale": "no",
+      "img": "palmer.wsp",
+      "inventory": 6,
+      "id": "60"
+    },
+
+    {
+      "title": "Marc Guéhi ",
+      "description": "Addji Keaninkin Marc-Israel Guéhi, känd som endast Marc Guéhi, född 13 juli 2000, är en engelsk fotbollsspelare som spelar för Manchester City i Premier League. ",
+      "price": 580,
+      "category": ["5", "1", "9"],
+      "onSale": "no",
+      "img": "guehi.wsp",
+      "inventory": 6,
+      "id": "62"
+    },
+
+    {
+      "title": "Reece James",
+      "description": "Reece James, född 8 december 1999, är en engelsk fotbollsspelare som spelar som lagkapten för Chelsea i Premier League.  ",
+      "price": 640,
+      "category": ["5", "1", "9"],
+      "onSale": "yes",
+      "img": "james.wsp",
+      "inventory": 5,
+      "id": "64"
+    },
+
+    {
+      "title": "Trent Alexander-Arnold ",
+      "description": "Trent Alexander-Arnold, född 7 oktober 1998 i Liverpool, England, är en engelsk fotbollsspelare som spelar för den spanska klubben Real Madrid. ",
+      "price": 480,
+      "category": ["5", "1", "9"],
+      "onSale": "no",
+      "img": "arnold.wsp",
+      "inventory": 4,
+      "id": "66"
+    },
+
+    {
+      "title": "Jordan Pickford",
+      "description": "Jordan Lee Pickford, född 7 mars 1994 i Washington i Tyne and Wear, är en engelsk fotbollsmålvakt som spelar för Everton. Han representerar även Englands herrlandslag.",
+      "price": 690,
+      "category": ["5", "1", "10"],
+      "onSale": "no",
+      "img": "pickford.wsp",
+      "inventory": 9,
+      "id": "68"
+    },
+
+    {
+      "title": "Dean Hendersson",
+      "description": "Dean Bradley Henderson, född 12 mars 1997, är en engelsk fotbollsmålvakt som spelar för Crystal Palace. ",
+      "price": 420,
+      "category": ["5", "1", "10"],
+      "onSale": "no",
+      "img": "hendersson.wsp",
+      "inventory": 5,
+      "id": "70"
+    },
+
+    {
+      "title": "James Trafford",
+      "description": "James Harrington Trafford, född 10 oktober 2002 i Cockermouth, England, är en engelsk fotbollsspelare som spelar för Leeds United i Premier League. ",
+      "price": 350,
+      "category": ["5", "1", "10"],
+      "onSale": "no",
+      "img": "trafford.wsp",
+      "inventory": 10,
+      "id": "72"
+    },
+
+    {
+      "title": "Kylian Mbappé",
+      "description": "Kylian Mbappé Lottin, född 20 december 1998 i Paris, är en fransk fotbollsspelare som spelar för Real Madrid i La Liga från säsongen 2024/25, och i Frankrikes landslag. Mbappé anses vara en av världens bästa fotbollsspelare. ",
+      "price": 1000,
+      "category": ["6", "1", "7"],
+      "onSale": "no",
+      "img": "mbappe.wsp",
+      "inventory": 1,
+      "id": "74"
+    },
+
+    {
+      "title": "Ousmane Dembélé",
+      "description": "Masour Ousmane Dembélé, född 15 maj 1997 i Vernon, Frankrike, är en fransk professionell fotbollsspelare som spelar ytter för Paris Saint-Germain och det franska landslaget. Han är känd for sin snabbhet, teknik och förmåga att använda båda fötterna. ",
+      "price": 980,
+      "category": ["6", "1", "7"],
+      "onSale": "no",
+      "img": "dembele.wsp",
+      "inventory": 2,
+      "id": "76"
+    },
+
+    {
+      "title": "Désiré Doué",
+      "description": "Désiré Nonka-Maho Doué, född 3 juni 2005 i Angers, är en fransk fotbollsspelare. ",
+      "price": 900,
+      "category": ["6", "1", "7"],
+      "onSale": "no",
+      "img": "doue.wsp",
+      "inventory": 3,
+      "id": "78"
+    },
+
+    {
+      "title": "Michael Olise",
+      "description": "Michael Akpovie Olise, född 12 december 2001 i Hammersmith, England, är en fransk-engelsk fotbollsspelare som spelar för Bundesliga-klubben Bayern München och Frankrikes landslag. ",
+      "price": 950,
+      "category": ["6", "1", "8"],
+      "onSale": "no",
+      "img": "olise.wsp",
+      "inventory": 2,
+      "id": "80"
+    },
+
+    {
+      "title": "Adrien Rabiot",
+      "description": "Adrien Thibault Marie Rabiot, född 3 april 1995, är en fransk fotbollsspelare som spelar för Milan. ",
+      "price": 680,
+      "category": ["6", "1", "8"],
+      "onSale": "yes",
+      "img": "rabiot.wsp",
+      "inventory": 7,
+      "id": "82"
+    },
+
+    {
+      "title": "Aurélien Tchouaméni ",
+      "description": "Aurélien Djani Tchouaméni, född 27 januari 2000, är en fransk fotbollsspelare som spelar för Real Madrid och Frankrikes landslag.",
+      "price": 750,
+      "category": ["6", "1", "8"],
+      "onSale": "no",
+      "img": "tchouameni.wsp",
+      "inventory": 4,
+      "id": "84"
+    },
+
+    {
+      "title": "William Saliba",
+      "description": "William Alain André Gabriel Saliba, född 24 mars 2001 i Bondy, Frankrike, är en fransk fotbollsspelare som spelar som mittback i Premier League-klubben Arsenal, dit han köptes sommaren 2019. ",
+      "price": 790,
+      "category": ["6", "1", "9"],
+      "onSale": "no",
+      "img": "saliba.wsp",
+      "inventory": 5,
+      "id": "86"
+    },
+
+    {
+      "title": "Dayot Upamecano",
+      "description": "Dayotchanculle Oswald Upamecano, född 27 oktober 1998, är en fransk fotbollsspelare som spelar för Bayern München. Han representerar även det franska landslaget. ",
+      "price": 760,
+      "category": ["6", "1", "9"],
+      "onSale": "no",
+      "img": "upamecano.wsp",
+      "inventory": 6,
+      "id": "88"
+    },
+
+    {
+      "title": "Jules Koundé",
+      "description": "Jules Olivier Koundé, född 12 november 1998, är en fransk fotbollsspelare som spelar för Barcelona. Han representerar även det franska landslaget. ",
+      "price": 850,
+      "category": ["6", "1", "9"],
+      "onSale": "no",
+      "img": "kounde.wsp",
+      "inventory": 5,
+      "id": "90"
+    },
+
+    {
+      "title": "Mike Maignan",
+      "description": "Mike Peterson Maignan, född 3 juli 1995 i Cayenne, Franska Guyana, är en fransk fotbollsmålvakt som spelar för AC Milan i Serie A.  ",
+      "price": 650,
+      "category": ["6", "1", "10"],
+      "onSale": "no",
+      "img": "maignan.wsp",
+      "inventory": 4,
+      "id": "92"
+    },
+
+    {
+      "title": "Brice Samba",
+      "description": "Brice Lauriche Samba är en professionell fotbollsspelare som spelar som målvakt för Ligue 1-klubben Rennes. Han är född i Republiken Kongo och spelar för det franska landslaget. ",
+      "price": 460,
+      "category": ["6", "1", "10"],
+      "onSale": "no",
+      "img": "samba.wsp",
+      "inventory": 7,
+      "id": "94"
+    },
+
+    {
+      "title": "Lucas Chevalier",
+      "description": "Lucas Eugène Chevalier är en fransk professionell fotbollsspelare som spelar som målvakt för Ligue 1-klubben Paris Saint-Germain och det franska landslaget. ",
+      "price": 600,
+      "category": ["6", "1", "10"],
+      "onSale": "no",
+      "img": "chevalier.wsp",
+      "inventory": 7,
+      "id": "96"
+    }
   ]
 }
