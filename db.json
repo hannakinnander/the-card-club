@@ -561,6 +561,487 @@
       "img": "chevalier.wsp",
       "inventory": 7,
       "id": "96"
+    },
+
+    {
+      "id": "1",
+      "title": "Fridolina Rolfö",
+      "description": "Fridolina Rolfö, född 24 november 1993 i\nHanhals församling i Hallands län, är en svensk fotbollsspelare som spelar för\nManchester United. Hon har tidigare spelat allsvensk fotboll för Jitex BK och\nLinköping FC och spelat internationellt för VfL Wolfsburg i tyska Bundesliga\noch för Barcelona.",
+      "price": 399,
+      "category": ["3", "2", "8"],
+      "onSale": false,
+      "img": "rolfo.webp",
+      "inventory": 3
+    },
+    {
+      "id": "3",
+      "title": "Filippa Angeldahl",
+      "description": "Ingrid Filippa Angeldahl, född 14\njuli 1997 i Uppsala, är en svensk fotbollsspelare som spelar för Real Madrid.",
+      "price": 369,
+      "category": ["3", "2", "8"],
+      "onSale": true,
+      "img": "angeldahl.webp",
+      "inventory": 2
+    },
+    {
+      "id": "5",
+      "title": "Kosovare Asllani",
+      "description": "Kosovare Asllani, född 29 juli 1989 i Heliga\nTrefaldighets församling i Kristianstad, är en svensk fotbollsspelare. Sedan\nsommaren 2024 spelar hon för London City Lionesses. Hon har dessförinnan en\nmångårig proffskarriär bakom sig i klubbar som Paris Saint-Germain, Linköping,\nManchester City, Real Madrid och AC Milan.",
+      "price": 499,
+      "category": ["3", "2", "8"],
+      "onSale": false,
+      "img": "asllani.webp",
+      "inventory": 0
+    },
+    {
+      "id": "7",
+      "title": "Amanda Ilestedt",
+      "description": "Amanda Ilestedt, född 17 januari 1993 i\nSölvesborgs församling, Blekinge län, är en svensk fotbollsspelare som spelar\nsom försvarare för Eintracht Frankfurt i tyska Frauen-Bundesliga. Hon har\ntidigare spelat för Bayern München, franska Paris Saint-Germain och engelska\nArsenal.",
+      "price": 499,
+      "category": ["3", "2", "9"],
+      "onSale": false,
+      "img": "ilestedt.webp",
+      "inventory": 6
+    },
+    {
+      "id": "9",
+      "title": "Nathalie Björn",
+      "description": "Gun Nathalie Björn, född 4 maj 1997 i Eds\nförsamling i Stockholms län, är en svensk fotbollsspelare som sedan januari\n2024 spelar för Chelsea. Hon debuterade i Sveriges landslag år 2016 och var med\noch tog VM-brons 2019 och 2023 samt OS-silver 2021. Hon tilldelades\nDiamantbollen 2025.",
+      "price": 299,
+      "category": ["3", "2", "9"],
+      "onSale": true,
+      "img": "bjorn.webp",
+      "inventory": 7
+    },
+    {
+      "id": "11",
+      "title": "Nesrin Akgün",
+      "description": "Nesrin Akgün, född 31 december 2004 i Falkenberg, är\nen svensk fotbollsspelare av kurdisk härkomst. Nesrin Akgün representerar sedan\n2025 BK Häcken dit hon kom från Växjö\nDFF. Hon har även represenrerat det svenska landslaget där hon har spelat\npå olika ungdomsnivåer",
+      "price": 429,
+      "category": ["3", "2", "9"],
+      "onSale": false,
+      "img": "akgun.webp",
+      "inventory": 8
+    },
+    {
+      "id": "13",
+      "title": "Stina Blackstenius",
+      "description": "Emma Stina Blackstenius, född 5 februari 1996 i\nVadstena, är en svensk fotbollsspelare som spelar för Arsenal WFC i FA Women's\nSuper League. Hennes moderklubb är Vadstena GIF, vilken hon lämnade 2013 för\nspel med Linköpings FC i Damallsvenskan. 2016 vann hon SM-guld med Linköping,\nklubbens andra guld någonsin.",
+      "price": 479,
+      "category": ["3", "2", "7"],
+      "onSale": false,
+      "img": "blackstenius.webp",
+      "inventory": 0
+    },
+    {
+      "id": "15",
+      "title": "Felicia Schröder",
+      "description": "Felicia Maria Shakira Schröder, född 13\napril 2007 i Björkö i Öckerö kommun, är en svensk fotbollsspelare som spelar\nsom forward för spanska Real Madrid och det svenska landslaget. Hon har\ntidigare representerat BK Häcken.",
+      "price": 409,
+      "category": ["3", "2", "7"],
+      "onSale": true,
+      "img": "schroder.webp",
+      "inventory": 5
+    },
+    {
+      "id": "17",
+      "title": "Evelyn Ijeh",
+      "description": "Evelyn Ijeh, född 12 augusti 2001 i Malmö,\när en svensk fotbollsspelare som spelar för AC Milan och svenska landslaget.\nEvelyn Ijeh är dotter till Peter Ijeh.",
+      "price": 519,
+      "category": ["3", "2", "7"],
+      "onSale": false,
+      "img": "ijeh.webp",
+      "inventory": 7
+    },
+    {
+      "id": "19",
+      "title": "Jennifer Falk",
+      "description": " Jennifer Miley Falk, född 26 april\n1993 i Torslanda församling i Göteborg, är en svensk fotbollsmålvakt som spelar\nför BK Häcken i Damallsvenskan.",
+      "price": 519,
+      "category": ["3", "2", "10"],
+      "onSale": false,
+      "img": "falk.webp",
+      "inventory": 6
+    },
+    {
+      "id": "21",
+      "title": "Moa Edrud",
+      "description": "Moa Jahmekya Edrud, född den 14 maj\n2000, är en svensk fotbollsspelare som spelar för FC Rosengård.",
+      "price": 499,
+      "category": ["3", "2", "10"],
+      "onSale": false,
+      "img": "edrud.webp",
+      "inventory": 6
+    },
+    {
+      "id": "23",
+      "title": "Saga Andersson",
+      "description": "Saga Andersson, född den 25 juli\n2007, är en svensk fotbollsspelare som\nspelar för FC Rosengård\"). Hon har även representerat\ndet svenska damlandslaget på olika ungdomsnivåer.",
+      "price": 319,
+      "category": ["3", "2", "10"],
+      "onSale": true,
+      "img": "andersson.webp",
+      "inventory": 3
+    },
+    {
+      "id": "23",
+      "title": "Natalia Ramos",
+      "description": "Natalia Ramos Álvarez (född 1999) är en\nspansk fotbollsspelare\nsom spelar som mittfältare för Liverpool FC i Women's Super League.",
+      "price": 399,
+      "category": ["4", "2", "8"],
+      "onSale": false,
+      "img": "ramos.webp",
+      "inventory": 2
+    },
+    {
+      "id": "25",
+      "title": "Ángela Sosa",
+      "description": "Ángela Sosa Martín är en spansk\nfotbollsspelare som spelar som mittfältare för Liga F-klubben Madrid CFF och\ndet spanska damlandslaget.",
+      "price": 429,
+      "category": ["4", "2", "8"],
+      "onSale": false,
+      "img": "sosa.webp",
+      "inventory": 5
+    },
+    {
+      "id": "27",
+      "title": "Paula Fernández",
+      "description": "Paula Fernández Jiménez är en spansk\nfotbollsspelare som spelar som mittfältare för Liga F-klubben Real Sociedad.",
+      "price": 299,
+      "category": ["4", "2", "8"],
+      "onSale": true,
+      "img": "fernandez.webp",
+      "inventory": 5
+    },
+    {
+      "id": "29",
+      "title": "Mapi\nLeón",
+      "description": "María Pilar \"Mapi\" León Cebrián,\nfödd den 13 juni 1995 i Zaragoza, är en spansk fotbollsspelare som spelar för\nden engelska klubben London City Lionesses. Hon har tidigare spelat för bland\nannat Barcelona och Atlético Madrid.",
+      "price": 549,
+      "category": ["4", "2", "9"],
+      "onSale": false,
+      "img": "leon.webp",
+      "inventory": 5
+    },
+    {
+      "id": "31",
+      "title": "María\nMéndez",
+      "description": "María Méndez Fernández, född den 10 april\n2001 i Oviedo, är en spansk fotbollsspelare som spelar i Real Madrid.",
+      "price": 259,
+      "category": ["4", "2", "9"],
+      "onSale": true,
+      "img": "mendez.webp",
+      "inventory": 8
+    },
+    {
+      "id": "33",
+      "title": "Elba Vergés",
+      "description": "Elba Vergés Prats är en spansk\nfotbollsspelare som spelar som försvarare för UD Teneriffa.",
+      "price": 479,
+      "category": ["4", "2", "9"],
+      "onSale": false,
+      "img": "verges.webp",
+      "inventory": 5
+    },
+    {
+      "id": "35",
+      "title": "Edna Imade",
+      "description": "Edna Imade, född den 5 oktober 2000 i\nMarocko, är en spansk fotbollsspelare som spelar för Real Sociedad på lån från\nFC Bayern München. Hon har även representerat Spaniens damlandslag i fotboll\ndär hon debuterade år 2025.",
+      "price": 519,
+      "category": ["4", "2", "7"],
+      "onSale": false,
+      "img": "imade.webp",
+      "inventory": 6
+    },
+    {
+      "id": "37",
+      "title": "Anita Marcos",
+      "description": "Ana Marcos Moral är en spansk\nprofessionell fotbollsspelare som spelar som forward för Liga F-klubben Madrid\nCFF.",
+      "price": 479,
+      "category": ["4", "2", "7"],
+      "onSale": false,
+      "img": "marcos.webp",
+      "inventory": 6
+    },
+    {
+      "id": "39",
+      "title": "Alba Redondo",
+      "description": "Alba Redondo, född den 27 augusti\n1996 i Albacete är en spansk fotbollsspelare som spelar för italienska Juventus\noch det spanska landslaget. Hon var en del av den trupp som representerade\nSpanien under U19-EM i Israel år 2015.",
+      "price": 499,
+      "category": ["4", "2", "7"],
+      "onSale": false,
+      "img": "redondo.webp",
+      "inventory": 5
+    },
+    {
+      "id": "41",
+      "title": "Cata\nColl",
+      "description": "Catalina Tomàs \"Cata\" Coll\nLluch, född den 23 april 2001 i Pòrtol, är en spansk fotbollsspelare som spelar\ni FC Barcelona.",
+      "price": 399,
+      "category": ["4", "2", "10"],
+      "onSale": false,
+      "img": "coll.webp",
+      "inventory": 10
+    },
+    {
+      "id": "43",
+      "title": "Lola Gallardo",
+      "description": "María Dolores \"Lola\"\nGallardo Núñez är en spansk professionell fotbollsspelare som spelar som\nmålvakt för Primera División-klubben Atlético Madrid och det spanska\ndamlandslaget.",
+      "price": 449,
+      "category": ["4", "2", "10"],
+      "onSale": false,
+      "img": "gallardo.webp",
+      "inventory": 0
+    },
+    {
+      "id": "45",
+      "title": "Sandra Paños",
+      "description": "Sandra Paños García-Villamil är en\nspansk professionell fotbollsspelare som spelar som målvakt för San Diego Wave\nFC i National Women's Soccer League. Hon har tidigare spelat för Liga F-lagen\nLevante och Barcelona, ​​där hon var lagkapten, innan hon gick med i Club América i Liga MX Femenil.",
+      "price": 289,
+      "category": ["4", "2", "10"],
+      "onSale": true,
+      "img": "panos.webp",
+      "inventory": 4
+    },
+    {
+      "id": "47",
+      "title": "Hannah Hampton",
+      "description": "Hannah Hampton, född 16 november 2000\ni Birmingham, är en engelsk fotbollsspelare som är målvakt i Chelsea FC Women.",
+      "price": 399,
+      "category": ["5", "2", "10"],
+      "onSale": false,
+      "img": "hampton.webp",
+      "inventory": 6
+    },
+    {
+      "id": "49",
+      "title": "Lucy Thomas",
+      "description": "Lucy Thomas är en engelsk\nprofessionell fotbollsspelare som spelar som målvakt för Women's Super\nLeague-klubben Birmingham City och har representerat det engelska\nU23-landslaget.",
+      "price": 459,
+      "category": ["5", "2", "10"],
+      "onSale": false,
+      "img": "thomas.webp",
+      "inventory": 0
+    },
+    {
+      "id": "51",
+      "title": "Khiara Keating",
+      "description": "Khiara Ilhaan Keating är en engelsk\nprofessionell fotbollsspelare som för närvarande spelar som målvakt för Women's\nSuper League-klubben Liverpool och det engelska landslaget.",
+      "price": 489,
+      "category": ["5", "2", "10"],
+      "onSale": false,
+      "img": "keating.webp",
+      "inventory": 8
+    },
+    {
+      "id": "53",
+      "title": "Maisie\nSymonds",
+      "description": "Maisie Symonds är en engelsk\nfotbollsspelare som spelar som mittfältare för Women's Super League-klubben\nBrighton & Hove Albion och Englands U23-lag. Hon har representerat England\nfrån ungdomsnivå under 16 och varit kapten för laget under 19 år.",
+      "price": 449,
+      "category": ["5", "2", "8"],
+      "onSale": false,
+      "img": "symonds.webp",
+      "inventory": 7
+    },
+    {
+      "id": "55",
+      "title": "Carla\nHumphrey",
+      "description": "Carla Humphrey är en engelsk\nprofessionell fotbollsspelare som spelar som mittfältare för Women's Super\nLeague-klubben Charlton Athletic.",
+      "price": 479,
+      "category": ["5", "2", "8"],
+      "onSale": false,
+      "img": "humphrey.webp",
+      "inventory": 7
+    },
+    {
+      "id": "57",
+      "title": "Lucia Kendall",
+      "description": "Lucia Charlotte Kendall är en engelsk\nprofessionell fotbollsspelare som spelar som mittfältare för Women's Super\nLeague-klubben Aston Villa och det engelska landslaget.",
+      "price": 259,
+      "category": ["5", "2", "8"],
+      "onSale": true,
+      "img": "kendall.webp",
+      "inventory": 6
+    },
+    {
+      "id": "59",
+      "title": "Lucy Bronze",
+      "description": "Lucia Roberta Tough \"Lucy\" Bronze,\nfödd 28 oktober 1991 i Berwick-upon-Tweed i nordligaste England, är en engelsk\nfotbollsspelare. För närvarande spelar hon för Chelsea FC Women. Hon har haft\nen lång karriär där hon har representerat klubbar som Liverpool WFC, Manchester\nCity, Olympique Lyonnais, FC Barcelona Femení.",
+      "price": 499,
+      "category": ["5", "2", "9"],
+      "onSale": false,
+      "img": "bronze.webp",
+      "inventory": 9
+    },
+    {
+      "id": "61",
+      "title": "Ella Morris",
+      "description": "Ella Beth Morris är en engelsk professionell\nfotbollsspelare som spelar som försvarare för Women's Super League-klubben\nTottenham Hotspur. Hon har tidigare representerat England på under-17, under-19\noch under-23 nivåer.",
+      "price": 349,
+      "category": ["5", "2", "9"],
+      "onSale": false,
+      "img": "morris.webp",
+      "inventory": 9
+    },
+    {
+      "id": "63",
+      "title": "Anouk Denton",
+      "description": "Anouk Stephanie Denton är en engelsk\nprofessionell fotbollsspelare som spelar som ytterback för Bay FC i National\nWomen's Soccer League och det engelska landslaget. Hon spelade tidigare för\nArsenal och West Ham United och spelade collegefotboll för Louisville\nCardinals.",
+      "price": 399,
+      "category": ["5", "2", "9"],
+      "onSale": false,
+      "img": "denton.webp",
+      "inventory": 4
+    },
+    {
+      "id": "65",
+      "title": "Alessia Russo",
+      "description": "Alessia Mia Teresa Russo, född den 8\nfebruari 1999 i Maidstone, är en engelsk fotbollsspelare som representerar\nArsenal och det engelska landslaget. Russo var en del av det landslag som\nspelade EM på hemmaplan i England år 2022.",
+      "price": 519,
+      "category": ["5", "2", "7"],
+      "onSale": false,
+      "img": "russo.webp",
+      "inventory": 6
+    },
+    {
+      "id": "67",
+      "title": "Jessica Naz",
+      "description": "Jessica Naz, född den 24 september\n2000 i London, är en engelsk fotbollsspelare som spelar i Tottenham Hotspur.",
+      "price": 499,
+      "category": ["5", "2", "7"],
+      "onSale": false,
+      "img": "naz.webp",
+      "inventory": 8
+    },
+    {
+      "id": "69",
+      "title": "Rachel Daly",
+      "description": "Rachel Ann Daly, född 6 december 1991\ni Harrogate, är en engelsk professionell fotbollsspelare som spelar för Aston\nVilla WFC och har spelat för det engelska landslaget och för Storbritanniens\nlandslag. Hon spelade för England både i VM i Frankrike år 2019 och i EM på\nhemmaplan i England år 2022.",
+      "price": 239,
+      "category": ["5", "2", "7"],
+      "onSale": true,
+      "img": "daly.webp",
+      "inventory": 2
+    },
+    {
+      "id": "71",
+      "title": "Marie Katoto",
+      "description": "Marie-Antoinette Katoto, född 1 november\n1998 i Colombes, är en fransk fotbollsspelare som representerar Paris\nSaint-Germain och det franska landslaget. Hon var en del av det landslag som\nspelade i Europamästerskapet i England år 2022.",
+      "price": 239,
+      "category": ["6", "2", "7"],
+      "onSale": true,
+      "img": "katoto.webp",
+      "inventory": 2
+    },
+    {
+      "id": "73",
+      "title": "Clara Mateo",
+      "description": "Clara Matéo, född den 28 november 1997 i\nNantes, är en fransk fotbollsspelare. Clara Matéo inledde sin seniorkarriär i\nVendée La Roche-sur-Yon 2014. Hon kontrakterades av Paris\nFC\") år 2016. Hon har även representerat det franska damlandslaget där\nhon debuterade år 2020.",
+      "price": 439,
+      "category": ["6", "2", "7"],
+      "onSale": false,
+      "img": "mateo.webp",
+      "inventory": 6
+    },
+    {
+      "id": "75",
+      "title": "Mathilde Bourdieu",
+      "description": "Mathilde Bourdieu är en fransk professionell\nfotbollsspelare som spelar som anfallare för Première Ligue-klubben Marseille.",
+      "price": 499,
+      "category": ["6", "2", "7"],
+      "onSale": false,
+      "img": "bourdieu.webp",
+      "inventory": 5
+    },
+    {
+      "id": "77",
+      "title": " Sakina Karchaoui",
+      "description": " Sakina Karchaoui, född den 26 januari\n1996 i Salon-de-Provence, är en fransk fotbollsspelare. Sakina Karchaoui\ninledde sin seniorkarriär i Montpellier HSC\") år 2012. Hon\nkontrakterades av Lyon\") år 2020 innan hon 2021\nvärvades av Paris Saint-Germain.",
+      "price": 499,
+      "category": ["6", "2", "8"],
+      "onSale": false,
+      "img": "karchaoui.webp",
+      "inventory": 5
+    },
+    {
+      "id": "79",
+      "title": "Grace Geyoro",
+      "description": "Grace Geyoro, född 2 juli 1997 i Kolwezi, är\nen fransk-kongolesisk fotbollsspelare som representerar Paris Saint-Germain och\ndet franska landslaget. Hon var med i den landslagstrupp som spelade\nEuropamästerskapet i England år 2022 och blev bland annat tremålsskytt i\nlandets inledande gruppspelsmatch mot Italien.",
+      "price": 559,
+      "category": ["6", "2", "8"],
+      "onSale": false,
+      "img": "geyoro.webp",
+      "inventory": 9
+    },
+    {
+      "id": "81",
+      "title": "Sandie Toletti",
+      "description": "Sandie Rose Toletti, född den 13 juli 1995,\när en fransk fotbollsspelare. Sandie Toletti inledde sin seniorkarriär i Montpellier HSC\") år 2013. Hon\nkontrakterades av Levante UD år 2020, och värvades år 2022 av Real Madrid. Hon har även representerat det\nfranska damlandslaget där hon debuterade år 2013.",
+      "price": 429,
+      "category": ["6", "2", "8"],
+      "onSale": false,
+      "img": "toletti.webp",
+      "inventory": 4
+    },
+    {
+      "id": "83",
+      "title": "Wendie Renard",
+      "description": "Wendie Renard, född den 20 juli 1990 i\nSchœlcher, Martinique, är en fransk fotbollsspelare som representerar\nklubblaget Olympique Lyonnais. Hon är även lagkapten i det franska landslaget.\nWendie Renard har blivit fransk mästare 13 gånger och har vunnit Champions\nLeague sex gånger.",
+      "price": 549,
+      "category": ["6", "2", "9"],
+      "onSale": false,
+      "img": "renard.webp",
+      "inventory": 3
+    },
+    {
+      "id": "85",
+      "title": "Griedge Mbock",
+      "description": "Griedge Mbock Bathy, född den 26 februari\n1995 i Brest, är en fransk fotbollsspelare som spelar i Paris Saint-Germain och\ni det franska landslaget. Hon var en del av den franska truppen under VM i\nKanada år 2015, men det var först i VM i Frankrike år 2019 som hon var en del\nav startelvan.",
+      "price": 479,
+      "category": ["6", "2", "9"],
+      "onSale": false,
+      "img": "mbock.webp",
+      "inventory": 8
+    },
+    {
+      "id": "87",
+      "title": "Maëlle Lakrar",
+      "description": "Maëlle Lakrar, född den 27 maj 2000 i Orange,\när en fransk fotbollsspelare. Maëlle Lakrar inledde sin seniorkarriär i\nOlympique de Marseille år 2015. 2018 värvades hon av Montpellier\") innan hon 2024\nkontrakterades av Real Madrid. Hon har även representerat det\nfranska damlandslaget där hon debuterade år 2023.",
+      "price": 239,
+      "category": ["6", "2", "9"],
+      "onSale": true,
+      "img": "lakrar.webp",
+      "inventory": 2
+    },
+    {
+      "id": "89",
+      "title": "Constance Picaud-Inconnu",
+      "description": "Constance Picaud, född 5 juli 1998, är en\nfransk professionell fotbollsspelare som spelar för den engelska klubben West\nHam United. Hon representerar även Frankrikes landslag där hon debuterade 2023.",
+      "price": 499,
+      "category": ["6", "2", "10"],
+      "onSale": false,
+      "img": "picaud-inconnu.webp",
+      "inventory": 0
+    },
+    {
+      "id": "91",
+      "title": "Mylène Chavas",
+      "description": "Mylène Chavas är en fransk professionell\nfotbollsspelare som spelar som målvakt för Première Ligue-klubben Paris FC och\ndet franska landslaget.",
+      "price": 259,
+      "category": ["6", "2", "10"],
+      "onSale": true,
+      "img": "chavas.webp",
+      "inventory": 0
+    },
+    {
+      "id": "93",
+      "title": "Pauline Peyraud-Magnin",
+      "description": "Pauline Peyraud-Magnin, född den 17 mars\n1992, är en fransk fotbollsspelare. Pauline Peyraud-Magnin inledde sin\nseniorkarriär i Lyon år\n2011\\. Hon har även spelat för Saint-Étienne och Marseille innan hon 2017\nåtervände till Lyon.",
+      "price": 519,
+      "category": ["6", "2", "10"],
+      "onSale": false,
+      "img": "peyraud-magnin.webp",
+      "inventory": 10
     }
   ]
 }
