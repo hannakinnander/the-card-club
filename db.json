@@ -130,10 +130,10 @@
     {
       "title": "Gabriel Gudmundsson",
       "description": "Gabriel Johan Gudmundsson, född 29 april 1999 i Limhamns församling, Skåne län, är en svensk fotbollsspelare som spelar för Leeds United i Premier League. ",
-      "price": null,
+      "price": 300,
       "category": ["3", "1", "9"],
       "onSale": false,
-      "img": "gudmundsson.wsp",
+      "img": "gudmundsson.webp",
       "inventory": 3,
       "id": "18"
     },
@@ -144,7 +144,7 @@
       "price": 250,
       "category": ["3", "1", "10"],
       "onSale": false,
-      "img": "johansson.wsp",
+      "img": "johansson.webp",
       "inventory": 8,
       "id": "20"
     },
@@ -154,7 +154,7 @@
       "price": 200,
       "category": ["3", "1", "10"],
       "onSale": true,
-      "img": "tornqvist.wsp",
+      "img": "tornqvist.webp",
       "inventory": 9,
       "id": "22"
     },
@@ -164,7 +164,7 @@
       "price": 150,
       "category": ["3", "1", "10"],
       "onSale": false,
-      "img": "zetterstrom.wsp",
+      "img": "zetterstrom.webp",
       "inventory": 10,
       "id": "24"
     },
@@ -175,7 +175,7 @@
       "price": 1000,
       "category": ["4", "1", "7"],
       "onSale": false,
-      "img": "yamal.wsp",
+      "img": "yamal.webp",
       "inventory": 1,
       "id": "26"
     },
@@ -186,7 +186,7 @@
       "price": 1,
       "category": ["4", "1", "7"],
       "onSale": false,
-      "img": "torres.wsp",
+      "img": "torres.webp",
       "inventory": 10,
       "id": "28"
     },
@@ -197,7 +197,7 @@
       "price": 700,
       "category": ["4", "1", "7"],
       "onSale": false,
-      "img": "oyarzabal.wsp",
+      "img": "oyarzabal.webp",
       "inventory": 6,
       "id": "30"
     },
@@ -208,7 +208,7 @@
       "price": 800,
       "category": ["4", "1", "8"],
       "onSale": false,
-      "img": "rodri.wsp",
+      "img": "rodri.webp",
       "inventory": 3,
       "id": "32"
     },
@@ -219,7 +219,7 @@
       "price": 950,
       "category": ["4", "1", "8"],
       "onSale": false,
-      "img": "pedri.wsp",
+      "img": "pedri.webp",
       "inventory": 2,
       "id": "34"
     },
@@ -230,7 +230,7 @@
       "price": 700,
       "category": ["4", "1", "8"],
       "onSale": true,
-      "img": "ruiz.wsp",
+      "img": "ruiz.webp",
       "inventory": 5,
       "id": "36"
     },
@@ -241,7 +241,7 @@
       "price": 900,
       "category": ["4", "1", "9"],
       "onSale": false,
-      "img": "cubarsi.wsp",
+      "img": "cubarsi.webp",
       "inventory": 4,
       "id": "38"
     },
@@ -252,7 +252,7 @@
       "price": 650,
       "category": ["4", "1", "9"],
       "onSale": false,
-      "img": "cucurella.wsp",
+      "img": "cucurella.webp",
       "inventory": 4,
       "id": "40"
     },
@@ -263,7 +263,7 @@
       "price": 780,
       "category": ["4", "1", "9"],
       "onSale": false,
-      "img": "llorente.wsp",
+      "img": "llorente.webp",
       "inventory": 6,
       "id": "42"
     },
@@ -274,7 +274,7 @@
       "price": 760,
       "category": ["4", "1", "10"],
       "onSale": true,
-      "img": "raya.wsp",
+      "img": "raya.webp",
       "inventory": 5,
       "id": "44"
     },
@@ -285,7 +285,7 @@
       "price": 800,
       "category": ["4", "1", "10"],
       "onSale": false,
-      "img": "garcia.wsp",
+      "img": "garcia.webp",
       "inventory": 4,
       "id": "46"
     },
@@ -295,7 +295,7 @@
       "price": 680,
       "category": ["4", "1", "10"],
       "onSale": false,
-      "img": "simon.wsp",
+      "img": "simon.webp",
       "inventory": 4,
       "id": "48"
     },
@@ -305,7 +305,7 @@
       "price": 800,
       "category": ["5", "1", "7"],
       "onSale": true,
-      "img": "kane.wsp",
+      "img": "kane.webp",
       "inventory": 6,
       "id": "50"
     },
@@ -316,7 +316,7 @@
       "price": 760,
       "category": ["5", "1", "7"],
       "onSale": false,
-      "img": "saka.wsp",
+      "img": "saka.webp",
       "inventory": 6,
       "id": "52"
     },
@@ -327,7 +327,7 @@
       "price": 500,
       "category": ["5", "1", "7"],
       "onSale": true,
-      "img": "toney.wsp",
+      "img": "toney.webp",
       "inventory": 9,
       "id": "54"
     },
@@ -338,7 +338,7 @@
       "price": 960,
       "category": ["5", "1", "8"],
       "onSale": false,
-      "img": "bellingham.wsp",
+      "img": "bellingham.webp",
       "inventory": 3,
       "id": "56"
     },
@@ -349,7 +349,7 @@
       "price": 500,
       "category": ["5", "1", "8"],
       "onSale": false,
-      "img": "rice.wsp",
+      "img": "rice.webp",
       "inventory": 8,
       "id": "58"
     },
@@ -360,7 +360,7 @@
       "price": 690,
       "category": ["5", "1", "8"],
       "onSale": false,
-      "img": "palmer.wsp",
+      "img": "palmer.webp",
       "inventory": 6,
       "id": "60"
     },
@@ -371,7 +371,7 @@
       "price": 580,
       "category": ["5", "1", "9"],
       "onSale": false,
-      "img": "guehi.wsp",
+      "img": "guehi.webp",
       "inventory": 6,
       "id": "62"
     },
@@ -382,7 +382,7 @@
       "price": 640,
       "category": ["5", "1", "9"],
       "onSale": true,
-      "img": "james.wsp",
+      "img": "james.webp",
       "inventory": 5,
       "id": "64"
     },
@@ -393,7 +393,7 @@
       "price": 480,
       "category": ["5", "1", "9"],
       "onSale": false,
-      "img": "arnold.wsp",
+      "img": "arnold.webp",
       "inventory": 4,
       "id": "66"
     },
@@ -404,7 +404,7 @@
       "price": 690,
       "category": ["5", "1", "10"],
       "onSale": false,
-      "img": "pickford.wsp",
+      "img": "pickford.webp",
       "inventory": 9,
       "id": "68"
     },
@@ -415,7 +415,7 @@
       "price": 420,
       "category": ["5", "1", "10"],
       "onSale": false,
-      "img": "hendersson.wsp",
+      "img": "henderson.webp",
       "inventory": 5,
       "id": "70"
     },
@@ -426,7 +426,7 @@
       "price": 350,
       "category": ["5", "1", "10"],
       "onSale": false,
-      "img": "trafford.wsp",
+      "img": "trafford.webp",
       "inventory": 10,
       "id": "72"
     },
@@ -437,7 +437,7 @@
       "price": 1000,
       "category": ["6", "1", "7"],
       "onSale": false,
-      "img": "mbappe.wsp",
+      "img": "mbappe.webp",
       "inventory": 1,
       "id": "74"
     },
@@ -448,7 +448,7 @@
       "price": 980,
       "category": ["6", "1", "7"],
       "onSale": false,
-      "img": "dembele.wsp",
+      "img": "dembele.webp",
       "inventory": 2,
       "id": "76"
     },
@@ -459,7 +459,7 @@
       "price": 900,
       "category": ["6", "1", "7"],
       "onSale": false,
-      "img": "doue.wsp",
+      "img": "doue.webp",
       "inventory": 3,
       "id": "78"
     },
@@ -470,7 +470,7 @@
       "price": 950,
       "category": ["6", "1", "8"],
       "onSale": false,
-      "img": "olise.wsp",
+      "img": "olise.webp",
       "inventory": 2,
       "id": "80"
     },
@@ -481,7 +481,7 @@
       "price": 680,
       "category": ["6", "1", "8"],
       "onSale": true,
-      "img": "rabiot.wsp",
+      "img": "rabiot.webp",
       "inventory": 7,
       "id": "82"
     },
@@ -492,7 +492,7 @@
       "price": 750,
       "category": ["6", "1", "8"],
       "onSale": false,
-      "img": "tchouameni.wsp",
+      "img": "tchouameni.webp",
       "inventory": 4,
       "id": "84"
     },
@@ -503,7 +503,7 @@
       "price": 790,
       "category": ["6", "1", "9"],
       "onSale": false,
-      "img": "saliba.wsp",
+      "img": "saliba.webp",
       "inventory": 5,
       "id": "86"
     },
@@ -514,7 +514,7 @@
       "price": 760,
       "category": ["6", "1", "9"],
       "onSale": false,
-      "img": "upamecano.wsp",
+      "img": "upamecano.webp",
       "inventory": 6,
       "id": "88"
     },
@@ -525,7 +525,7 @@
       "price": 850,
       "category": ["6", "1", "9"],
       "onSale": false,
-      "img": "kounde.wsp",
+      "img": "kounde.webp",
       "inventory": 5,
       "id": "90"
     },
@@ -536,7 +536,7 @@
       "price": 650,
       "category": ["6", "1", "10"],
       "onSale": false,
-      "img": "maignan.wsp",
+      "img": "maignan.webp",
       "inventory": 4,
       "id": "92"
     },
@@ -547,7 +547,7 @@
       "price": 460,
       "category": ["6", "1", "10"],
       "onSale": false,
-      "img": "samba.wsp",
+      "img": "samba.webp",
       "inventory": 7,
       "id": "94"
     },
@@ -558,7 +558,7 @@
       "price": 600,
       "category": ["6", "1", "10"],
       "onSale": false,
-      "img": "chevalier.wsp",
+      "img": "chevalier.webp",
       "inventory": 7,
       "id": "96"
     },
@@ -684,7 +684,7 @@
       "inventory": 3
     },
     {
-      "id": "23",
+      "id": "95",
       "title": "Natalia Ramos",
       "description": "Natalia Ramos Álvarez (född 1999) är en spansk fotbollsspelare som spelar som mittfältare för Liverpool FC i Women's Super League.",
       "price": 399,
@@ -1020,7 +1020,7 @@
       "price": 499,
       "category": ["6", "2", "10"],
       "onSale": false,
-      "img": "picaud-inconnu.webp",
+      "img": "picaud-inconno.webp",
       "inventory": 0
     },
     {
