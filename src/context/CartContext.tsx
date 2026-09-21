@@ -12,7 +12,7 @@ interface ICartContext {
   ) => boolean;
 }
 
-const CartContext = createContext<ICartContext | null>(null);
+export const CartContext = createContext<ICartContext | null>(null);
 
 const CartProvider = ({ children }: PropsWithChildren) => {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);

@@ -1,5 +1,11 @@
+import CartProvider from "./context/CartContext";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <CartProvider>
+      <div>App</div>
+    </CartProvider>
+  );
 };
 
 export default App;
