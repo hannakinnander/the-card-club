@@ -32,6 +32,12 @@ const CartProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
+  const deleteItem = (product: IProduct) => {
+    setOrderItems((prev) =>
+      prev.filter((orderItem) => orderItem.product.id != product.id),
+    );
+  };
+
   return (
     <CartContext.Provider value={{ orderItems, addOrderItem }}>
       {children}
