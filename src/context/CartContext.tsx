@@ -57,7 +57,7 @@ const CartProvider = ({ children }: PropsWithChildren) => {
         (orderItem) => orderItem.product.id === product.id,
       );
 
-      if (!item) return;
+      if (!item) return false;
       if (item.quantity === product.inventory) {
         return false;
       }
@@ -81,7 +81,9 @@ const CartProvider = ({ children }: PropsWithChildren) => {
     }
   };
   return (
-    <CartContext.Provider value={{ orderItems, addOrderItem, deleteItem }}>
+    <CartContext.Provider
+      value={{ orderItems, addOrderItem, deleteItem, changeQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );
