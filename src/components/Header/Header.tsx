@@ -1,4 +1,4 @@
-import useCart from "../hooks/useCart";
+import useCart from "../../hooks/useCart";
 
 const Header = () => {
   const { orderItems } = useCart();
@@ -9,7 +9,11 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between bg-black px-4 py-3 text-white">
-      <img src="public\Logo\Logoicon.png" alt="The Card Club logo" className="h-14 w-auto" />
+      <img
+        src="public\Logo\Logoicon.png"
+        alt="The Card Club logo"
+        className="h-14 w-auto"
+      />
 
       <div className="relative">
         <svg

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import type { IProduct } from "../types/product";
+import type { IProduct } from "../../types/product";
 
 interface ICategory {
   id: string;
@@ -22,9 +22,7 @@ const fetchCategories = async (): Promise<ICategory[]> => {
 };
 
 const Productpage = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    null,
-  );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [onSaleOnly, setOnSaleOnly] = useState(false);
 
   const { data: products = [], isLoading: productsLoading } = useQuery({
