@@ -1,17 +1,17 @@
 import CartProvider from "./context/CartContext";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DetailPage from "./components/DetailPage";
+import Header from "./components/Header/Header";
+import Hero from "./components/ProductPage/Hero";
+import Productpage from "./components/ProductPage/Productpage";
 
 const App = () => {
   return (
-    <BrowserRouter>
+ 
     <CartProvider>
-      <Routes>
-        <Route path="/" element={<div>Startsida</div>} />
-        <Route path="/product/:id" element={<DetailPage />} />
-      </Routes>
+      <Header />
+      <Hero />
+      <Productpage />
     </CartProvider>
-    </BrowserRouter>
+    
   );
 };
 
