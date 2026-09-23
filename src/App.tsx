@@ -5,11 +5,13 @@ import Productpage from "./components/ProductPage/Productpage";
 
 const App = () => {
   return (
+ 
     <CartProvider>
       <Header />
       <Hero />
       <Productpage />
     </CartProvider>
+    
   );
 };
 
