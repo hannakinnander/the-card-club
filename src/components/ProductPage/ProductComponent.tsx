@@ -1,4 +1,5 @@
 import type { IProduct } from "../../types/product";
+import AddToCartBtn from "../common/AddToCartBtn";
 
 interface ProductComponentProps {
   product: IProduct;
@@ -24,7 +25,12 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
         <p className="mt-auto text-sm font-bold">
           {product.price != null ? `${product.price} kr` : "Pris saknas"}
         </p>
-        
+        <AddToCartBtn
+          product={product}
+          className="rounded bg-black px-3 py-1.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:bg-gray-300"
+        >
+          {product.inventory === 0 ? "Slut i lager" : "Lägg i varukorg"}
+        </AddToCartBtn>
       </div>
     </div>
   );

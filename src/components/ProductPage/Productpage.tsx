@@ -63,7 +63,6 @@ const Productpage = () => {
         {filteredProducts.map((product) => (
           <ProductComponent key={product.id} product={product} />
         ))}
-        
 
         {filteredProducts.length === 0 && (
           <p className="col-span-full text-center text-gray-500">
@@ -76,3 +75,4 @@ const Productpage = () => {
 };
 
 export default Productpage;
+
