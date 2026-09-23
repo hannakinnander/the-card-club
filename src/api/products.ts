@@ -1,6 +1,6 @@
 import type { IProduct } from "../types/product";
 
-const API_URL = "http://localhost:5173/products";
+const API_URL = "http://localhost:3000/products";
 
 export const getAllProducts = async (): Promise<IProduct[]> => {
   const response = await fetch(API_URL);

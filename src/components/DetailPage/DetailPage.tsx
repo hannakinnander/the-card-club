@@ -15,7 +15,7 @@ const DetailPage = () => {
     } = useGetProduct(id!);
 
   const {
-    data: productCategories,
+    data: categories,
     isLoading: categoriesIsLoading,
     isError: categoriesIsError,
     error: categoriesError,
@@ -30,9 +30,12 @@ const DetailPage = () => {
   if (categoriesIsError) {
     return <p>fel: {categoriesError.message}</p>;
   }
-  if (!product || !productCategories) {
+  if (!product || !categories) {
     return <p>Produkten hittades inte</p>;
   }
+
+const productCategories = categories.filter((category) => 
+  product.category.includes(category.id));
 
   return (
     <div>
