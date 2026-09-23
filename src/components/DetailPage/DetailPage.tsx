@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { IProduct } from '../../types/product';
-import AddToCartButton from "../AddToCartButton";
+import AddToCartBtn from "../common/AddToCartBtn";
+
 
 interface ICategory {
   id: string;
@@ -52,7 +53,7 @@ const DetailPage = () => {
       <p>{product.description}</p>
       <p>{product.price} kr</p>
       <p>Lager: {product.inventory}</p>
-      <AddToCartButton product={product} />
+      <AddToCartBtn product={product}>lägg i varukorg</AddToCartBtn> 
 
      
     </div>

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import useCart from "../../hooks/useCart";
 import type { IProduct } from "../../types/product";
 
-const AddToCartBtn = (product: IProduct, children: ReactNode) => {
+const AddToCartBtn = ({ product, children }: { product: IProduct; children: ReactNode }) => {
   const { addOrderItem } = useCart();
   return (
     <button
