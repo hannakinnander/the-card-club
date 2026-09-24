@@ -5,6 +5,9 @@ import Hero from "./components/ProductPage/Hero";
 import Productpage from "./components/ProductPage/Productpage";
 import Footer from "./components/Footer/Footer";
 import DetailPage from "./components/DetailPage/DetailPage";
+import CartPage from "./components/CartPage/CartPage";
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+import ConfirmationPage from "./components/ConfirmationPage/ConfirmationPage";
 
 const App = () => {
   return (
@@ -21,7 +24,10 @@ const App = () => {
             </>
           }
         />
-        <Route path="/product/:id" element={<DetailPage />} />
+        <Route path="/:id" element={<DetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Routes>
       <Footer />
     </CartProvider>

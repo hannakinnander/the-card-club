@@ -9,7 +9,7 @@ interface ProductComponentProps {
 const ProductComponent = ({ product }: ProductComponentProps) => {
   return (
     <div className="flex flex-col overflow-hidden rounded-lg border border-gray-200">
-      <Link to={`/product/${product.id}`} className="flex flex-1 flex-col">
+      <Link to={`${product.id}`} className="flex flex-1 flex-col">
         <div className="relative bg-gray-100">
           <img
             src={`/card-images/${product.img}`}

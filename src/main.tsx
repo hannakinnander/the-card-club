@@ -8,16 +8,11 @@ import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <div className="flex min-h-screen flex-col">
-      <div className="flex-1">
         <QueryClientProvider client={new QueryClient()}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
-      </div>
-
-    </div>
   </StrictMode>,
 );

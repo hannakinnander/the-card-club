@@ -1,7 +1,5 @@
-interface ICategory {
-  id: string;
-  title: string;
-}
+import type { ICategory } from "../types/categories";
+
 const API_URL = "http://localhost:3000/categories";
 
 export const getCategories = async (): Promise<ICategory[]> => {
