@@ -1,25 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import type { IProduct } from "../../types/product";
-import FilterComponent, {
-  filterProducts,
-  type ICategory,
-} from "./FilterComponent";
+import FilterComponent, { filterProducts } from "./FilterComponent";
 import ProductComponent from "../ProductPage/ProductComponent";
-
-const API_URL = "http://localhost:3000";
-
-const fetchProducts = async (): Promise<IProduct[]> => {
-  const res = await fetch(`${API_URL}/products`);
-  if (!res.ok) throw new Error("Failed to fetch products");
-  return res.json();
-};
-
-const fetchCategories = async (): Promise<ICategory[]> => {
-  const res = await fetch(`${API_URL}/categories`);
-  if (!res.ok) throw new Error("Failed to fetch categories");
-  return res.json();
-};
+import { useGetAllProducts } from "../../hooks/useGetAllProducts";
+import { useGetCategories } from "../../hooks/useGetCategories";
 
 const Productpage = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -33,15 +16,10 @@ const Productpage = () => {
     );
   };
 
-  const { data: products = [], isLoading: productsLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: fetchProducts,
-  });
+  const { data: products = [], isLoading: productsLoading } =
+    useGetAllProducts();
 
-  const { data: categories = [] } = useQuery({
-    queryKey: ["categories"],
-    queryFn: fetchCategories,
-  });
+  const { data: categories = [] } = useGetCategories();
 
   const filteredProducts = filterProducts(products, selectedCategories, onSaleOnly);
 

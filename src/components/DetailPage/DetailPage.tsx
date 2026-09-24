@@ -1,45 +1,38 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { IProduct } from '../../types/product';
 import AddToCartBtn from "../common/AddToCartBtn";
+import { useGetProduct } from "../../hooks/useGetProduct";
+import { useGetCategories } from "../../hooks/useGetCategories";
 
-
-interface ICategory {
-  id: string;
-  title: string;
-}
 
 const DetailPage = () => {
   const { id } = useParams();
 
-  const [product, setProduct] = useState<IProduct | null>(null);
-  const [categories, setCategories] =  useState<ICategory[]>([]);
+  const {
+      data: product,
+      isLoading: producIsLoading,
+      isError: productIsError,
+      error: productError,
+    } = useGetProduct(id!);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/products")
-      .then((response) => response.json())
-      .then((data) => {
+  const {
+    data: productCategories,
+    isLoading: categoriesIsLoading,
+    isError: categoriesIsError,
+    error: categoriesError,
+  } = useGetCategories();
 
-        const product = data.find((product: IProduct) => product.id === id)
-        setProduct(product || null);
-  });
-
-  fetch("http://localhost:3000/categories")
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
-    
-      });
-
-  }, []);
-
-    if (!product) {
-    return <div>Laddar...</div>;
+  if (producIsLoading || categoriesIsLoading) {
+    return <p>Laddar...</p>;
   }
-
-  const productCategories = categories.filter((category) =>
-    product.category.includes(category.id)
-  );
+  if (productIsError) {
+    return <p>fel: {productError.message}</p>;
+  }
+  if (categoriesIsError) {
+    return <p>fel: {categoriesError.message}</p>;
+  }
+  if (!product || !productCategories) {
+    return <p>Produkten hittades inte</p>;
+  }
 
   return (
     <div>

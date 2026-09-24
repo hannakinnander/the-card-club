@@ -1,10 +1,8 @@
-interface ICategory {
-  id: string;
-  title: string;
-}
-const API_URL = "http://localhost:5173/categories";
+import type { ICategory } from "../types/categories";
 
-export const getCategories = async (): Promise<ICategory> => {
+const API_URL = "http://localhost:3000/categories";
+
+export const getCategories = async (): Promise<ICategory[]> => {
   const response = await fetch(API_URL);
 
   if (!response.ok) {
