@@ -1,9 +1,6 @@
 import type { IProduct } from "../../types/product";
+import type { ICategory } from "../../types/categories";
 
-export interface ICategory {
-  id: string;
-  title: string;
-}
 
 interface FilterComponentProps {
   categories: ICategory[];
