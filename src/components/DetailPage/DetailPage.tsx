@@ -3,19 +3,36 @@ import AddToCartBtn from "../common/AddToCartBtn";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import { useGetCategories } from "../../hooks/useGetCategories";
 
+
 const DetailPage = () => {
   const { id } = useParams();
 
-  const { data: product } = useGetProduct(id ?? "");
-  const { data: categories = [] } = useGetCategories();
+  const {
+      data: product,
+      isLoading: producIsLoading,
+      isError: productIsError,
+      error: productError,
+    } = useGetProduct(id!);
 
-  if (!product) {
-    return <div>Laddar...</div>;
+  const {
+    data: productCategories,
+    isLoading: categoriesIsLoading,
+    isError: categoriesIsError,
+    error: categoriesError,
+  } = useGetCategories();
+
+  if (producIsLoading || categoriesIsLoading) {
+    return <p>Laddar...</p>;
   }
-
-  const productCategories = categories.filter((category) =>
-    product.category.includes(category.id)
-  );
+  if (productIsError) {
+    return <p>fel: {productError.message}</p>;
+  }
+  if (categoriesIsError) {
+    return <p>fel: {categoriesError.message}</p>;
+  }
+  if (!product || !productCategories) {
+    return <p>Produkten hittades inte</p>;
+  }
 
   return (
     <div>
