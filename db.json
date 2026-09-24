@@ -186,7 +186,7 @@
       "price": 1,
       "category": ["4", "1", "7"],
       "onSale": false,
-      "img": "torres.webp",
+      "img": "torres.png",
       "inventory": 10,
       "id": "28"
     },
@@ -448,7 +448,7 @@
       "price": 980,
       "category": ["6", "1", "7"],
       "onSale": false,
-      "img": "dembele.webp",
+      "img": "dembele.png",
       "inventory": 2,
       "id": "76"
     },

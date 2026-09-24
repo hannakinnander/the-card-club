@@ -1,39 +1,15 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { IProduct } from '../../types/product';
 import AddToCartBtn from "../common/AddToCartBtn";
-
-
-interface ICategory {
-  id: string;
-  title: string;
-}
+import { useGetProduct } from "../../hooks/useGetProduct";
+import { useGetCategories } from "../../hooks/useGetCategories";
 
 const DetailPage = () => {
   const { id } = useParams();
 
-  const [product, setProduct] = useState<IProduct | null>(null);
-  const [categories, setCategories] =  useState<ICategory[]>([]);
+  const { data: product } = useGetProduct(id ?? "");
+  const { data: categories = [] } = useGetCategories();
 
-  useEffect(() => {
-    fetch("http://localhost:3000/products")
-      .then((response) => response.json())
-      .then((data) => {
-
-        const product = data.find((product: IProduct) => product.id === id)
-        setProduct(product || null);
-  });
-
-  fetch("http://localhost:3000/categories")
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
-    
-      });
-
-  }, []);
-
-    if (!product) {
+  if (!product) {
     return <div>Laddar...</div>;
   }
 

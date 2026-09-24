@@ -4,7 +4,7 @@ interface ICategory {
 }
 const API_URL = "http://localhost:3000/categories";
 
-export const getCategories = async (): Promise<ICategory> => {
+export const getCategories = async (): Promise<ICategory[]> => {
   const response = await fetch(API_URL);
 
   if (!response.ok) {
