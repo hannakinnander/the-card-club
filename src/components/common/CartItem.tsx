@@ -14,7 +14,7 @@ const CartItem = ({ orderItem, children }: IProps) => {
       />
       <div>
         <p>{orderItem.product.title}</p>
-        <p>{`Pris/st: ${orderItem.product.price} SEK`}</p>
+        <p>{`Pris/st: ${orderItem.price} SEK`}</p>
       </div>
       <div>
         {children}
