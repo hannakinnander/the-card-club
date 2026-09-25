@@ -9,8 +9,9 @@ const CheckoutPage = () => {
   return (
     <div>
       <Link to="/cart">Tillbaka</Link>
-      <h2>Kassan</h2>
+      <h2>Kassa</h2>
       <div>
+        <h3>Orderöversikt</h3>
         {orderItems.map((orderItem) => (
           <div key={orderItem.product.id}>
             <CartItem
