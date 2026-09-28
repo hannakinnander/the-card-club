@@ -2,16 +2,10 @@ import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import CartItem from "../common/CartItem";
 import QuantityChanger from "./QuantityChanger";
+import Total from "../common/Total";
 
 const CartPage = () => {
   const { orderItems } = useCart();
-
-  const calculateSum = () => {
-    return orderItems.reduce(
-      (sum, orderItem) => sum + orderItem.quantity * orderItem.price,
-      0,
-    );
-  };
 
   const cartContent = () => {
     if (orderItems.length === 0) {
@@ -36,7 +30,7 @@ const CartPage = () => {
       <Link to="/">← Fortsätt handla</Link>
       <h2>Varukorg</h2>
       {cartContent()}
-      <p>{`Summa: ${calculateSum()}`}</p>
+      <Total />
       <Link to="/checkout">Till kassan</Link>
     </div>
   );
