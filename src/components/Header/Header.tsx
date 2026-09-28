@@ -10,11 +10,13 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between bg-black px-4 py-3 text-white">
-      <img
-        src="/Logo/Logoicon.png"
-        alt="The Card Club logo"
-        className="h-14 w-auto"
-      />
+      <Link to="/">
+        <img
+          src="/Logo/Logoicon.png"
+          alt="The Card Club logo"
+          className="h-14 w-auto"
+        />
+      </Link>
 
       <Link to="/cart">
         <div className="relative">

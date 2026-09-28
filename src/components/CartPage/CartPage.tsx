@@ -6,6 +6,7 @@ import Total from "../common/Total";
 
 const CartPage = () => {
   const { orderItems } = useCart();
+  const savedFilters = sessionStorage.getItem("productFilters");
 
   const cartContent = () => {
     if (orderItems.length === 0) {
@@ -27,7 +28,9 @@ const CartPage = () => {
 
   return (
     <div>
-      <Link to="/">← Fortsätt handla</Link>
+      <Link to={savedFilters ? `/?${savedFilters}` : "/"}>
+        ← Fortsätt handla
+      </Link>
       <h2>Varukorg</h2>
       {cartContent()}
       <Total />
