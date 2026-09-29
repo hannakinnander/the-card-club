@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import CartItem from "../common/CartItem";
 import Total from "../common/Total";
+import CustomerInformation from "./CustomerInformation";
 
 const CheckoutPage = () => {
   const { orderItems } = useCart();
@@ -21,6 +22,7 @@ const CheckoutPage = () => {
         ))}
         <Total />
       </div>
+      <CustomerInformation />
     </div>
   );
 };
