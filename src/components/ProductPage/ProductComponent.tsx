@@ -1,12 +1,25 @@
 import { Link } from "react-router-dom";
 import type { IProduct } from "../../types/product";
-import AddToCartBtn from "../common/AddToCartBtn";
+import useCart from "../../hooks/useCart";
 
 interface ProductComponentProps {
   product: IProduct;
 }
 
 const ProductComponent = ({ product }: ProductComponentProps) => {
+  const { orderItems, addOrderItem } = useCart();
+  const quantityInCart =
+    orderItems.find((orderItem) => orderItem.product.id === product.id)
+      ?.quantity ?? 0;
+  const soldOut = quantityInCart >= product.inventory;
+
+  let label = "Lägg i varukorg";
+  if (soldOut) {
+    label = "Slut i lager";
+  } else if (quantityInCart > 0) {
+    label = `Lägg till fler (${quantityInCart} i varukorg)`;
+  }
+
   return (
     <div className="flex flex-col overflow-hidden rounded-lg border border-gray-200">
       <Link to={`${product.id}`} className="flex flex-1 flex-col">
@@ -30,12 +43,13 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
         </div>
       </Link>
       <div className="px-3 pb-3">
-        <AddToCartBtn
-          product={product}
+        <button
+          disabled={soldOut}
+          onClick={() => addOrderItem(product)}
           className="w-full rounded bg-black px-3 py-1.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:bg-gray-300"
         >
-          {product.inventory === 0 ? "Slut i lager" : "Lägg i varukorg"}
-        </AddToCartBtn>
+          {label}
+        </button>
       </div>
     </div>
   );

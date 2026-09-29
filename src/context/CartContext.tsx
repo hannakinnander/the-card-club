@@ -28,7 +28,7 @@ const CartProvider = ({ children }: PropsWithChildren) => {
       setOrderItems((prev) =>
         prev.map((orderItem) =>
           orderItem.product.id === product.id
-            ? { ...orderItem, quantity: orderItem.quantity++ }
+            ? { ...orderItem, quantity: orderItem.quantity + 1 }
             : orderItem,
         ),
       );
@@ -64,7 +64,7 @@ const CartProvider = ({ children }: PropsWithChildren) => {
       setOrderItems((prev) =>
         prev.map((orderItem) =>
           orderItem.product.id === product.id
-            ? { ...orderItem, quantity: orderItem.quantity++ }
+            ? { ...orderItem, quantity: orderItem.quantity + 1 }
             : orderItem,
         ),
       );
@@ -73,7 +73,7 @@ const CartProvider = ({ children }: PropsWithChildren) => {
       setOrderItems((prev) =>
         prev.map((orderItem) =>
           orderItem.product.id === product.id && orderItem.quantity >= 2
-            ? { ...orderItem, quantity: orderItem.quantity-- }
+            ? { ...orderItem, quantity: orderItem.quantity - 1 }
             : orderItem,
         ),
       );

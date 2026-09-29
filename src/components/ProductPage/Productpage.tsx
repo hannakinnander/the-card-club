@@ -1,18 +1,35 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import FilterComponent, { filterProducts } from "./FilterComponent";
 import ProductComponent from "../ProductPage/ProductComponent";
 import { useGetAllProducts } from "../../hooks/useGetAllProducts";
 import { useGetCategories } from "../../hooks/useGetCategories";
 
 const Productpage = () => {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [onSaleOnly, setOnSaleOnly] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedCategories =
+    searchParams.get("kategorier")?.split(",").filter(Boolean) ?? [];
+  const onSaleOnly = searchParams.get("rea") === "1";
+
+
+  useEffect(() => {
+    sessionStorage.setItem("productFilters", searchParams.toString());
+  }, [searchParams]);
+
+  const updateFilters = (categories: string[], saleOnly: boolean) => {
+    const params = new URLSearchParams();
+    if (categories.length > 0) params.set("kategorier", categories.join(","));
+    if (saleOnly) params.set("rea", "1");
+    setSearchParams(params, { replace: true });
+  };
 
   const toggleCategory = (categoryId: string) => {
-    setSelectedCategories((prev) =>
-      prev.includes(categoryId)
-        ? prev.filter((id) => id !== categoryId)
-        : [...prev, categoryId],
+    updateFilters(
+      selectedCategories.includes(categoryId)
+        ? selectedCategories.filter((id) => id !== categoryId)
+        : [...selectedCategories, categoryId],
+      onSaleOnly,
     );
   };
 
@@ -34,7 +51,7 @@ const Productpage = () => {
         selectedCategories={selectedCategories}
         onToggleCategory={toggleCategory}
         onSaleOnly={onSaleOnly}
-        onToggleOnSaleOnly={() => setOnSaleOnly((prev) => !prev)}
+        onToggleOnSaleOnly={() => updateFilters(selectedCategories, !onSaleOnly)}
       />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
