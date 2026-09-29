@@ -39,7 +39,8 @@ const DetailPage = () => {
       
       <img src={`/card-images/${product.img}`} alt={product.title} />
       <h1>{product.title}</h1>
-       <div>{productCategories.map((category) => (
+       <div>
+       {productCategories.filter((category) => product.category.includes(category.id)).map((category) => (
         <p key={category.id}>{category.title}</p>
       ))}
       </div>
