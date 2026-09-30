@@ -1,4 +1,4 @@
-const VIDEO_SRC = "/video/hero.mp4";
+const VIDEO_SRC = "/video/neymar.mp4";
 
 const Hero = () => {
   return (
