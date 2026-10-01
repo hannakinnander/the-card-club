@@ -7,12 +7,9 @@ export const useCreateOrder = () => {
   return useMutation({
     mutationFn: createOrder,
     onSuccess: () => {
-      (queryClient.invalidateQueries({
+      queryClient.invalidateQueries({
         queryKey: ["orders"],
-      }),
-        queryClient.invalidateQueries({
-          queryKey: ["order"],
-        }));
+      });
     },
   });
 };

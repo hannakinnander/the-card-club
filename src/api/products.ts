@@ -18,3 +18,25 @@ export const getProduct = async (id: string): Promise<IProduct> => {
   }
   return response.json();
 };
+
+export const updateInventory = async ({
+  id,
+  inventory,
+}: {
+  id: string;
+  inventory: number;
+}): Promise<IProduct> => {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ inventory }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Kunde inte uppdatera lagersaldo");
+  }
+
+  return response.json();
+};
