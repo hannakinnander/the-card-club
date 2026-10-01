@@ -7,7 +7,7 @@ import { shippingSchema } from "../../types/shipping";
 const shippingMethods = ["Instabox", "Postnord", "DHL"];
 
 interface IProps {
-  shipping: ShippingType;
+  shipping?: ShippingType;
   onSubmit: (type: "shipping", data: ShippingForm) => void;
 }
 
@@ -25,7 +25,10 @@ const ShippingMethodForm = ({ shipping, onSubmit }: IProps) => {
   });
 
   return (
-    <form onSubmit={handleSubmit((data) => onSubmit("shipping", data))}>
+    <form
+      className={" flex flex-col w-fit"}
+      onSubmit={handleSubmit((data) => onSubmit("shipping", data))}
+    >
       {shippingMethods.map((method) => (
         <label key={method}>
           <input type="radio" value={method} {...register("shipping")} />

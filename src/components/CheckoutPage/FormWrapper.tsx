@@ -24,9 +24,14 @@ const FormWrapper = ({
       return children;
     } else if (isCompleted) {
       return (
-        <div>
+        <div className={""}>
           {summary}
-          <button onClick={onClick}>Redigera ✎</button>
+          <button
+            className={"absolute top-2 right-2 text-xl"}
+            onClick={onClick}
+          >
+            ✎
+          </button>
         </div>
       );
     } else {
@@ -34,8 +39,10 @@ const FormWrapper = ({
     }
   };
   return (
-    <div className={`${isLocked ? "opacity-50 pointer-events-none" : ""}`}>
-      <p>{heading}</p>
+    <div
+      className={`bg-amber-100 w-150 relative rounded-2xl p-2 ${isLocked ? "opacity-50 bg-gray-200 pointer-events-none" : ""}`}
+    >
+      <p className={"text-2xl"}>{heading}</p>
       {renderContent()}
     </div>
   );
