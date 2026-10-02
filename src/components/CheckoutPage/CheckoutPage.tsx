@@ -8,31 +8,74 @@ import CustomerInformationForm from "./CustomerInformationForm";
 import type { ShippingForm, ShippingType } from "../../types/shipping";
 import type { CustomerInfo } from "../../types/customerInfo";
 import { useState } from "react";
-import type { INewOrder } from "../../types/order";
+import type { INewOrder, IOrder } from "../../types/order";
 import type { PaymentForm, PaymentType } from "../../types/payment";
 import PaymentMethodForm from "./PaymentMethod";
+import { usePostOrder } from "../../hooks/usePostOrder";
+import { useUpdateInventory } from "../../hooks/useUpdateInventory";
+import { useQueryClient } from "@tanstack/react-query";
+import type { ICheckoutData } from "../../types/checkoutData";
 
 const CheckoutPage = () => {
   const { orderItems } = useCart();
-  const [shippingMethod, setShippingMethod] = useState<ShippingType>();
+  const [checkoutData, setCheckoutData] = useState<ICheckoutData>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [editing, setEditing] = useState<
+    "customerInfo" | "shipping" | "payment" | null
+  >(null);
+  const formsCompleted =
+    !!checkoutData.customerInfo &&
+    !!checkoutData.shippingMethod &&
+    !!checkoutData.paymentMethod;
+  const { mutateAsync: postOrder } = usePostOrder();
+  const { mutateAsync: updateInventory } = useUpdateInventory();
+  const queryClient = useQueryClient();
 
-  const [customerInfo, setCustomerInfo] = useState<CustomerInfo>();
-  const [paymentMethod, setPaymentMethod] = useState<PaymentType>();
-  const [editingCustomerInfo, setEditingCustomerInfo] = useState(false);
-  const [editingShipping, setEditingShipping] = useState(false);
-  const [editingPayment, setEditingPayment] = useState(false);
+  const handleOrder = async () => {
+    setIsSubmitting(true);
 
-  //KOMPLETTERA MED TYP FÖR CUSTOMERINFO
+    try {
+      const newOrder = createOrder();
+      await postOrder(newOrder);
+      await Promise.all(
+        newOrder.orderItems.map((orderItem) =>
+          updateInventory({
+            id: orderItem.product.id,
+            inventory: orderItem.product.inventory - orderItem.quantity,
+          }),
+        ),
+      );
+      queryClient.invalidateQueries({
+        queryKey: ["products"],
+      });
+      newOrder.orderItems.forEach((orderItem) =>
+        queryClient.invalidateQueries({
+          queryKey: ["product", orderItem.product.id],
+        }),
+      );
+    } catch (error) {
+      setError((error as Error).message);
+    }
+  };
+
   const createOrder = () => {
-    const total = calculateTotal(orderItems);
+    if (
+      !checkoutData.customerInfo ||
+      !checkoutData.shippingMethod ||
+      !checkoutData.paymentMethod
+    ) {
+      throw new Error("Fyll i alla uppgifter innan du fortsätter.");
+    }
 
-    const newOrder: INewOrder = {
+    return {
       orderItems,
-      customerInfo,
-
-      total,
-      date: "1231313131",
-      ordernumber: 1533,
+      customerInfo: checkoutData.customerInfo,
+      shippingMethod: checkoutData.shippingMethod,
+      paymentMethod: checkoutData.paymentMethod,
+      total: calculateTotal(orderItems),
+      date: new Date().toISOString(),
+      ordernumber: Date.now(),
     };
   };
 
@@ -41,15 +84,27 @@ const CheckoutPage = () => {
     data: CustomerInfo | ShippingForm | PaymentForm,
   ) => {
     if (type === "customerInfo" && "firstName" in data) {
-      setCustomerInfo(data);
-      setEditingCustomerInfo(false);
-    } else if (type === "shippingMethod" && "shippingMethod" in data) {
-      setShippingMethod(data.shippingMethod);
-      setEditingShipping(false);
-    } else if (type === "paymentMethod" && "paymentMethod" in data) {
-      setPaymentMethod(data.paymentMethod);
-      setEditingPayment(false);
+      setCheckoutData((prev) => ({
+        ...prev,
+        customerInfo: data,
+      }));
     }
+
+    if (type === "shippingMethod" && "shippingMethod" in data) {
+      setCheckoutData((prev) => ({
+        ...prev,
+        shippingMethod: data.shippingMethod,
+      }));
+    }
+
+    if (type === "paymentMethod" && "paymentMethod" in data) {
+      setCheckoutData((prev) => ({
+        ...prev,
+        paymentMethod: data.paymentMethod,
+      }));
+    }
+
+    setEditing(null);
   };
   return (
     <div>
@@ -68,60 +123,64 @@ const CheckoutPage = () => {
       </div>
       <FormWrapper
         isLocked={false}
-        isCompleted={!!customerInfo}
-        isEditing={editingCustomerInfo}
-        onClick={() => setEditingCustomerInfo(true)}
+        isCompleted={!!checkoutData.customerInfo}
+        isEditing={editing === "customerInfo"}
+        onClick={() => setEditing(null)}
         heading={"Kundinformation"}
         summary={
-          customerInfo && (
+          checkoutData.customerInfo && (
             <div>
               <p>
-                {customerInfo.firstName} {customerInfo.lastName}
+                {checkoutData.customerInfo.firstName}{" "}
+                {checkoutData.customerInfo.lastName}
               </p>
-              <p>{customerInfo.address}</p>
+              <p>{checkoutData.customerInfo.address}</p>
               <p>
-                {customerInfo.zipCode} {customerInfo.city}
+                {checkoutData.customerInfo.zipCode}{" "}
+                {checkoutData.customerInfo.city}
               </p>
             </div>
           )
         }
       >
         <CustomerInformationForm
-          customerInfo={customerInfo}
+          customerInfo={checkoutData.customerInfo}
           onSubmit={onSubmit}
         />
       </FormWrapper>
 
       <FormWrapper
-        isLocked={!customerInfo}
-        isCompleted={!!shippingMethod}
-        isEditing={editingShipping}
-        onClick={() => setEditingShipping(true)}
+        isLocked={!checkoutData.customerInfo}
+        isCompleted={!!checkoutData.shippingMethod}
+        isEditing={editing === "shipping"}
+        onClick={() => setEditing(null)}
         heading={"Leverans"}
-        summary={shippingMethod && <p>{shippingMethod}</p>}
+        summary={
+          checkoutData.shippingMethod && <p>{checkoutData.shippingMethod}</p>
+        }
       >
         <ShippingMethodForm
-          shippingMethod={shippingMethod}
+          shippingMethod={checkoutData.shippingMethod}
           onSubmit={onSubmit}
         />
       </FormWrapper>
 
       <FormWrapper
-        isLocked={!customerInfo && !shippingMethod}
-        isCompleted={!!paymentMethod}
-        isEditing={editingPayment}
-        onClick={() => setEditingPayment(true)}
+        isLocked={!checkoutData.customerInfo && !checkoutData.shippingMethod}
+        isCompleted={!!checkoutData.paymentMethod}
+        isEditing={editing === "payment"}
+        onClick={() => setEditing(null)}
         heading={"Betalning"}
-        summary={paymentMethod && <p>{paymentMethod}</p>}
+        summary={
+          checkoutData.paymentMethod && <p>{checkoutData.paymentMethod}</p>
+        }
       >
-        <PaymentMethodForm paymentMethod={paymentMethod} onSubmit={onSubmit} />
+        <PaymentMethodForm
+          paymentMethod={checkoutData.paymentMethod}
+          onSubmit={onSubmit}
+        />
       </FormWrapper>
-      <button
-        onClick={() => {
-          const now = new Date().toISOString();
-          console.log(now);
-        }}
-      >
+      <button disabled={!formsCompleted || isSubmitting} onClick={() => {}}>
         Klick
       </button>
     </div>

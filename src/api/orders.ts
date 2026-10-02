@@ -1,4 +1,4 @@
-import type { IOrder } from "../types/order";
+import type { INewOrder, IOrder } from "../types/order";
 
 const API_URL = "http://localhost:3000/orders";
 
@@ -18,7 +18,7 @@ export const getOrder = async (id: string): Promise<IOrder> => {
   return response.json();
 };
 
-export const postOrder = async (order: IOrder) => {
+export const postOrder = async (order: INewOrder) => {
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {

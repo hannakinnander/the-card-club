@@ -8,7 +8,7 @@ import {
 
 interface IProps {
   paymentMethod?: PaymentType;
-  onSubmit: (type: "payment", data: PaymentForm) => void;
+  onSubmit: (type: "paymentMethod", data: PaymentForm) => void;
 }
 
 const PaymentMethod = ({ paymentMethod, onSubmit }: IProps) => {
@@ -25,7 +25,7 @@ const PaymentMethod = ({ paymentMethod, onSubmit }: IProps) => {
   });
 
   return (
-    <form onSubmit={handleSubmit((data) => onSubmit("payment", data))}>
+    <form onSubmit={handleSubmit((data) => onSubmit("paymentMethod", data))}>
       <label>
         <input type="radio" value="Kort" {...register("paymentMethod")} />
         Kort
