@@ -8,19 +8,23 @@ import CustomerInformationForm from "./CustomerInformationForm";
 import type { ShippingForm, ShippingType } from "../../types/shipping";
 import type { CustomerInfo } from "../../types/customerInfo";
 import { useState } from "react";
+import type { PaymentForm } from "../../types/payment";
+import PaymentMethodForm from "./PaymentMethod";
+
 
 const CheckoutPage = () => {
   const { orderItems } = useCart();
   const [shipping, setShipping] = useState<ShippingType>();
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo>();
-  // const [payment, setPayment] = useState();
+  const [payment, setPayment] = useState<string>();
   const [editingCustomerInfo, setEditingCustomerInfo] = useState(false);
   const [editingShipping, setEditingShipping] = useState(false);
-  // const [editingPayment, setEditingPayment] = useState(false);
+  const [editingPayment, setEditingPayment] = useState(false);
 
   const onSubmit = (
     type: "customerInfo" | "shipping" | "payment",
-    data: CustomerInfo | ShippingForm,
+    data: CustomerInfo | ShippingForm | PaymentForm
+    
   ) => {
     if (type === "customerInfo" && "firstName" in data) {
       setCustomerInfo(data);
@@ -28,6 +32,9 @@ const CheckoutPage = () => {
     } else if (type === "shipping" && "shipping" in data) {
       setShipping(data.shipping);
       setEditingShipping(false);
+    } else if (type === "payment" && "paymentMethod" in data) {
+      setPayment(data.paymentMethod);
+      setEditingPayment(false);
     }
   };
   return (
@@ -79,7 +86,7 @@ const CheckoutPage = () => {
         <ShippingMethodForm shipping={shipping} onSubmit={onSubmit} />
       </FormWrapper>
 
-      {/* 
+      
       <FormWrapper
         isLocked={false}
         isCompleted={!!payment}
@@ -88,8 +95,8 @@ const CheckoutPage = () => {
         heading={"Betalning"}
         summary={payment && <p>{payment}</p>}
       >
-        <PaymentMethodForm payment={payment} onSubmit={onSubmit} />
-      </FormWrapper> */}
+        <PaymentMethodForm onSubmit={onSubmit} />
+      </FormWrapper> 
     </div>
   );
 };
