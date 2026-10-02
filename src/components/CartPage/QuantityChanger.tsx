@@ -24,7 +24,7 @@ const QuantityChanger = ({ orderItem }: IProps) => {
   };
   return (
     <div>
-      <div>
+      <div className={"flex"}>
         <button onClick={() => handleChange(orderItem.product, "decrease")}>
           -
         </button>
