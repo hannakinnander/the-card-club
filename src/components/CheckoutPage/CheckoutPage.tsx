@@ -6,25 +6,31 @@ import FormWrapper from "./FormWrapper";
 import ShippingMethodForm from "./ShippingMethodForm";
 import type { ShippingForm, ShippingType } from "../../types/shipping";
 import { useState } from "react";
+import type { PaymentForm } from "../../types/payment";
+import PaymentMethodForm from "./PaymentMethod";
+
 
 const CheckoutPage = () => {
   const { orderItems } = useCart();
   const [shipping, setShipping] = useState<ShippingType>();
   // const [customerInfo, setCustomerInfo] = useState();
-  // const [payment, setPayment] = useState();
+  const [payment, setPayment] = useState<string>();
   //const [editingCustomerInfo, setEditingCustomerInfo] = useState(false);
   const [editingShipping, setEditingShipping] = useState(false);
-  // const [editingPayment, setEditingPayment] = useState(false);
+  const [editingPayment, setEditingPayment] = useState(false);
 
   const onSubmit = (
     type: "customerInfo" | "shipping" | "payment",
-    data: ShippingForm,
+    data: ShippingForm | PaymentForm
   ) => {
     if (type === "customerInfo") {
       console.log(data);
     } else if (type === "shipping") {
       setShipping(data.shipping);
       setEditingShipping(false);
+    } else if (type === "payment" && "paymentMethod" in data) {
+      setPayment(data.paymentMethod);
+      setEditingPayment(false);
     }
   };
   return (
@@ -72,7 +78,7 @@ const CheckoutPage = () => {
         <ShippingMethodForm shipping={shipping} onSubmit={onSubmit} />
       </FormWrapper>
 
-      {/* 
+      
       <FormWrapper
         isLocked={false}
         isCompleted={!!payment}
@@ -81,8 +87,8 @@ const CheckoutPage = () => {
         heading={"Betalning"}
         summary={payment && <p>{payment}</p>}
       >
-        <PaymentMethodForm payment={payment} onSubmit={onSubmit} />
-      </FormWrapper> */}
+        <PaymentMethodForm onSubmit={onSubmit} />
+      </FormWrapper> 
     </div>
   );
 };

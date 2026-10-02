@@ -1,31 +1,24 @@
-import { z } from "zod";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
+import { paymentSchema, type PaymentForm } from "../../types/payment";
 
+interface IProps {
+  onSubmit: (type: "payment", data: PaymentForm) => void;
+}
 
-const paymentSchema = z.object({
-    paymentMethod: z.string().min(1, "Välj ett betalningsalternativ"),
-    savePaymentMethod: z.boolean(),
-});
-
-type PaymentForm = z.infer<typeof paymentSchema>;
-
-const PaymentMethod = () => {
+const PaymentMethod = ({ onSubmit }: IProps) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<PaymentForm>({
-        resolver: zodResolver(paymentSchema)
+        resolver: zodResolver(paymentSchema),
+        mode: "onChange",
     });
-
-    const onSubmit = (data: PaymentForm) => {
-        console.log(data);
-    };
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(data => onSubmit("payment", data))}>
             <label>
                 <input
                     type="radio"
