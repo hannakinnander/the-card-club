@@ -1,20 +1,35 @@
 import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import CartItem from "../common/CartItem";
-import Total from "../common/Total";
+import Total, { calculateTotal } from "../common/Total";
 import FormWrapper from "./FormWrapper";
 import ShippingMethodForm from "./ShippingMethodForm";
 import type { ShippingForm, ShippingType } from "../../types/shipping";
 import { useState } from "react";
+import type { INewOrder } from "../../types/order";
 
 const CheckoutPage = () => {
   const { orderItems } = useCart();
   const [shipping, setShipping] = useState<ShippingType>();
-  // const [customerInfo, setCustomerInfo] = useState();
-  // const [payment, setPayment] = useState();
+  const [customerInfo, setCustomerInfo] = useState();
+  const [payment, setPayment] = useState();
   //const [editingCustomerInfo, setEditingCustomerInfo] = useState(false);
   const [editingShipping, setEditingShipping] = useState(false);
   // const [editingPayment, setEditingPayment] = useState(false);
+
+  //KOMPLETTERA MED TYP FÖR CUSTOMERINFO
+  const createOrder = () => {
+    const total = calculateTotal(orderItems);
+
+    const newOrder: INewOrder = {
+      orderItems,
+      customerInfo,
+
+      total,
+      date: "1231313131",
+      ordernumber: 1533,
+    };
+  };
 
   const onSubmit = (
     type: "customerInfo" | "shipping" | "payment",
@@ -83,6 +98,14 @@ const CheckoutPage = () => {
       >
         <PaymentMethodForm payment={payment} onSubmit={onSubmit} />
       </FormWrapper> */}
+      <button
+        onClick={() => {
+          const now = new Date().toISOString();
+          console.log(now);
+        }}
+      >
+        Klick
+      </button>
     </div>
   );
 };

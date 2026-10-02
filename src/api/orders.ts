@@ -18,7 +18,7 @@ export const getOrder = async (id: string): Promise<IOrder> => {
   return response.json();
 };
 
-export const createOrder = async (order: IOrder) => {
+export const postOrder = async (order: IOrder) => {
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
