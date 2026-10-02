@@ -1,6 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
 import type { CustomerInfo } from "../../types/customerInfo";
 import { customerInfoSchema } from "../../types/customerInfo";
 
@@ -17,7 +16,7 @@ interface IProps {
   onSubmit: (type: "customerInfo", data: CustomerInfo) => void;
 }
 
-const CustomerInformation = ({ customerInfo, onSubmit }: IProps) => {
+const CustomerInformationForm = ({ customerInfo, onSubmit }: IProps) => {
   const {
     register,
     handleSubmit,
@@ -57,4 +56,4 @@ const CustomerInformation = ({ customerInfo, onSubmit }: IProps) => {
   );
 };
 
-export default CustomerInformation;
+export default CustomerInformationForm;

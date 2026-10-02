@@ -4,7 +4,7 @@ import CartItem from "../common/CartItem";
 import Total from "../common/Total";
 import FormWrapper from "./FormWrapper";
 import ShippingMethodForm from "./ShippingMethodForm";
-import CustomerInformation from "./CustomerInformation";
+import CustomerInformationForm from "./CustomerInformationForm";
 import type { ShippingForm, ShippingType } from "../../types/shipping";
 import type { CustomerInfo } from "../../types/customerInfo";
 import { useState } from "react";
@@ -65,11 +65,11 @@ const CheckoutPage = () => {
           )
         }
       >
-        <CustomerInformation customerInfo={customerInfo} onSubmit={onSubmit} />
+        <CustomerInformationForm customerInfo={customerInfo} onSubmit={onSubmit} />
       </FormWrapper>
 
       <FormWrapper
-        isLocked={!customerInfo || editingCustomerInfo}
+        isLocked={!customerInfo}
         isCompleted={!!shipping}
         isEditing={editingShipping}
         onClick={() => setEditingShipping(true)}
