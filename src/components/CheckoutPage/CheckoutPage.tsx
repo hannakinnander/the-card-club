@@ -121,68 +121,75 @@ const CheckoutPage = () => {
         ))}
         <Total />
       </div>
-      <FormWrapper
-        isLocked={false}
-        isCompleted={!!checkoutData.customerInfo}
-        isEditing={editing === "customerInfo"}
-        onClick={() => setEditing(null)}
-        heading={"Kundinformation"}
-        summary={
-          checkoutData.customerInfo && (
-            <div>
-              <p>
-                {checkoutData.customerInfo.firstName}{" "}
-                {checkoutData.customerInfo.lastName}
-              </p>
-              <p>{checkoutData.customerInfo.address}</p>
-              <p>
-                {checkoutData.customerInfo.zipCode}{" "}
-                {checkoutData.customerInfo.city}
-              </p>
-            </div>
-          )
-        }
-      >
-        <CustomerInformationForm
-          customerInfo={checkoutData.customerInfo}
-          onSubmit={onSubmit}
-        />
-      </FormWrapper>
+      <div className={"flex flex-col gap-2 max-w-150"}>
+        <FormWrapper
+          isLocked={false}
+          isCompleted={!!checkoutData.customerInfo}
+          isEditing={editing === "customerInfo"}
+          onClick={() => setEditing("customerInfo")}
+          heading={"Kundinformation"}
+          summary={
+            checkoutData.customerInfo && (
+              <div>
+                <p>
+                  {checkoutData.customerInfo.firstName}{" "}
+                  {checkoutData.customerInfo.lastName}
+                </p>
+                <p>{checkoutData.customerInfo.address}</p>
+                <p>
+                  {checkoutData.customerInfo.zipCode}{" "}
+                  {checkoutData.customerInfo.city}
+                </p>
+              </div>
+            )
+          }
+        >
+          <CustomerInformationForm
+            customerInfo={checkoutData.customerInfo}
+            onSubmit={onSubmit}
+          />
+        </FormWrapper>
 
-      <FormWrapper
-        isLocked={!checkoutData.customerInfo}
-        isCompleted={!!checkoutData.shippingMethod}
-        isEditing={editing === "shipping"}
-        onClick={() => setEditing(null)}
-        heading={"Leverans"}
-        summary={
-          checkoutData.shippingMethod && <p>{checkoutData.shippingMethod}</p>
-        }
-      >
-        <ShippingMethodForm
-          shippingMethod={checkoutData.shippingMethod}
-          onSubmit={onSubmit}
-        />
-      </FormWrapper>
+        <FormWrapper
+          isLocked={!checkoutData.customerInfo}
+          isCompleted={!!checkoutData.shippingMethod}
+          isEditing={editing === "shipping"}
+          onClick={() => setEditing("shipping")}
+          heading={"Leverans"}
+          summary={
+            checkoutData.shippingMethod && <p>{checkoutData.shippingMethod}</p>
+          }
+        >
+          <ShippingMethodForm
+            shippingMethod={checkoutData.shippingMethod}
+            onSubmit={onSubmit}
+          />
+        </FormWrapper>
 
-      <FormWrapper
-        isLocked={!checkoutData.customerInfo && !checkoutData.shippingMethod}
-        isCompleted={!!checkoutData.paymentMethod}
-        isEditing={editing === "payment"}
-        onClick={() => setEditing(null)}
-        heading={"Betalning"}
-        summary={
-          checkoutData.paymentMethod && <p>{checkoutData.paymentMethod}</p>
-        }
-      >
-        <PaymentMethodForm
-          paymentMethod={checkoutData.paymentMethod}
-          onSubmit={onSubmit}
-        />
-      </FormWrapper>
-      <button disabled={!formsCompleted || isSubmitting} onClick={() => {}}>
-        Klick
-      </button>
+        <FormWrapper
+          isLocked={!checkoutData.shippingMethod}
+          isCompleted={!!checkoutData.paymentMethod}
+          isEditing={editing === "payment"}
+          onClick={() => setEditing("payment")}
+          heading={"Betalning"}
+          summary={
+            checkoutData.paymentMethod && <p>{checkoutData.paymentMethod}</p>
+          }
+        >
+          <PaymentMethodForm
+            paymentMethod={checkoutData.paymentMethod}
+            onSubmit={onSubmit}
+          />
+        </FormWrapper>
+        <p>{error}</p>
+        <button
+          disabled={!formsCompleted || isSubmitting || editing !== null}
+          className={"bg-green-400 disabled:opacity-50"}
+          onClick={() => {}}
+        >
+          {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
+        </button>
+      </div>
     </div>
   );
 };
