@@ -28,7 +28,7 @@ export const useCheckout = () => {
         queryKey: ["product", orderItem.product.id],
       }),
     );
-    console.log(placedOrder);
+
     navigate(`/confirmation/${placedOrder.id}`);
   };
 
