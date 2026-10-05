@@ -38,7 +38,7 @@ const CheckoutPage = () => {
 
     try {
       const newOrder = createOrder();
-      await postOrder(newOrder);
+      const placedOrder: IOrder = await postOrder(newOrder);
       await Promise.all(
         newOrder.orderItems.map((orderItem) =>
           updateInventory({
@@ -55,6 +55,8 @@ const CheckoutPage = () => {
           queryKey: ["product", orderItem.product.id],
         }),
       );
+      console.log(placedOrder);
+      navigate(`/confirmation/${placedOrder.id}`);
     } catch (error) {
       setError((error as Error).message);
     }
