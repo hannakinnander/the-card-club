@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import CartItem from "../common/CartItem";
 import Total, { calculateTotal } from "../common/Total";
@@ -31,6 +31,7 @@ const CheckoutPage = () => {
   const { mutateAsync: postOrder } = usePostOrder();
   const { mutateAsync: updateInventory } = useUpdateInventory();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const handleOrder = async () => {
     setIsSubmitting(true);
@@ -69,7 +70,7 @@ const CheckoutPage = () => {
     }
 
     return {
-      orderItems,
+      orderItems: orderItems,
       customerInfo: checkoutData.customerInfo,
       shippingMethod: checkoutData.shippingMethod,
       paymentMethod: checkoutData.paymentMethod,
@@ -106,6 +107,9 @@ const CheckoutPage = () => {
 
     setEditing(null);
   };
+  if (orderItems.length === 0) {
+    return <Navigate to="/cart" />;
+  }
   return (
     <div>
       <Link to="/cart">Tillbaka till varukorg</Link>
@@ -185,7 +189,9 @@ const CheckoutPage = () => {
         <button
           disabled={!formsCompleted || isSubmitting || editing !== null}
           className={"bg-green-400 disabled:opacity-50"}
-          onClick={() => {}}
+          onClick={() => {
+            handleOrder();
+          }}
         >
           {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
         </button>
