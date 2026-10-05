@@ -1,20 +1,19 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import CartItem from "../common/CartItem";
 import Total, { calculateTotal } from "../common/Total";
 import FormWrapper from "./FormWrapper";
 import ShippingMethodForm from "./ShippingMethodForm";
 import CustomerInformationForm from "./CustomerInformationForm";
-import type { ShippingForm, ShippingType } from "../../types/shipping";
+import type { ShippingForm } from "../../types/shipping";
 import type { CustomerInfo } from "../../types/customerInfo";
 import { useState } from "react";
-import type { INewOrder, IOrder } from "../../types/order";
-import type { PaymentForm, PaymentType } from "../../types/payment";
+import type { INewOrder } from "../../types/order";
+import type { PaymentForm } from "../../types/payment";
 import PaymentMethodForm from "./PaymentMethod";
-import { usePostOrder } from "../../hooks/usePostOrder";
-import { useUpdateInventory } from "../../hooks/useUpdateInventory";
-import { useQueryClient } from "@tanstack/react-query";
+
 import type { ICheckoutData } from "../../types/checkoutData";
+import { useCheckout } from "../../hooks/useCheckout";
 
 const CheckoutPage = () => {
   const { orderItems } = useCart();
@@ -28,35 +27,14 @@ const CheckoutPage = () => {
     !!checkoutData.customerInfo &&
     !!checkoutData.shippingMethod &&
     !!checkoutData.paymentMethod;
-  const { mutateAsync: postOrder } = usePostOrder();
-  const { mutateAsync: updateInventory } = useUpdateInventory();
-  const queryClient = useQueryClient();
-  const navigate = useNavigate();
+  const { checkout } = useCheckout();
 
   const handleOrder = async () => {
     setIsSubmitting(true);
 
     try {
-      const newOrder = createOrder();
-      const placedOrder: IOrder = await postOrder(newOrder);
-      await Promise.all(
-        newOrder.orderItems.map((orderItem) =>
-          updateInventory({
-            id: orderItem.product.id,
-            inventory: orderItem.product.inventory - orderItem.quantity,
-          }),
-        ),
-      );
-      queryClient.invalidateQueries({
-        queryKey: ["products"],
-      });
-      newOrder.orderItems.forEach((orderItem) =>
-        queryClient.invalidateQueries({
-          queryKey: ["product", orderItem.product.id],
-        }),
-      );
-      console.log(placedOrder);
-      navigate(`/confirmation/${placedOrder.id}`);
+      const newOrder: INewOrder = createOrder();
+      await checkout(newOrder);
     } catch (error) {
       setError((error as Error).message);
     }
@@ -72,7 +50,7 @@ const CheckoutPage = () => {
     }
 
     return {
-      orderItems: orderItems,
+      orderItems,
       customerInfo: checkoutData.customerInfo,
       shippingMethod: checkoutData.shippingMethod,
       paymentMethod: checkoutData.paymentMethod,
@@ -191,9 +169,7 @@ const CheckoutPage = () => {
         <button
           disabled={!formsCompleted || isSubmitting || editing !== null}
           className={"bg-green-400 disabled:opacity-50"}
-          onClick={() => {
-            handleOrder();
-          }}
+          onClick={handleOrder}
         >
           {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
         </button>
