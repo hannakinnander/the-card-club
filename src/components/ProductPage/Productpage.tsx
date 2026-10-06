@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import FilterComponent, { filterProducts } from "./FilterComponent";
+import FilterComponent from "./FilterComponent";
+import {
+  filterProducts,
+  GENDERS,
+  type GenderFilters,
+} from "./filterProducts";
 import ProductComponent from "../ProductPage/ProductComponent";
 import { useGetAllProducts } from "../../hooks/useGetAllProducts";
 import { useGetCategories } from "../../hooks/useGetCategories";
@@ -8,8 +13,13 @@ import { useGetCategories } from "../../hooks/useGetCategories";
 const Productpage = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedCategories =
-    searchParams.get("kategorier")?.split(",").filter(Boolean) ?? [];
+  // e.g. ?herrar=3,4,7&damer=2&rea=1
+  const genderFilters: GenderFilters = Object.fromEntries(
+    GENDERS.map((gender) => [
+      gender.id,
+      searchParams.get(gender.param)?.split(",").filter(Boolean) ?? [],
+    ]),
+  );
   const onSaleOnly = searchParams.get("rea") === "1";
 
 
@@ -17,20 +27,28 @@ const Productpage = () => {
     sessionStorage.setItem("productFilters", searchParams.toString());
   }, [searchParams]);
 
-  const updateFilters = (categories: string[], saleOnly: boolean) => {
+  const updateFilters = (filters: GenderFilters, saleOnly: boolean) => {
     const params = new URLSearchParams();
-    if (categories.length > 0) params.set("kategorier", categories.join(","));
+    GENDERS.forEach((gender) => {
+      const selected = filters[gender.id] ?? [];
+      if (selected.length > 0) params.set(gender.param, selected.join(","));
+    });
     if (saleOnly) params.set("rea", "1");
     setSearchParams(params, { replace: true });
   };
 
-  const toggleCategory = (categoryId: string) => {
-    updateFilters(
-      selectedCategories.includes(categoryId)
-        ? selectedCategories.filter((id) => id !== categoryId)
-        : [...selectedCategories, categoryId],
-      onSaleOnly,
-    );
+  const toggleCategory = (genderId: string, categoryId: string) => {
+    const selected = genderFilters[genderId];
+    let next: string[];
+    if (selected.includes(categoryId)) {
+      next = selected.filter((id) => id !== categoryId);
+    } else if (categoryId === genderId) {
+      // "Alla herrar/damer" clears the other checkboxes in that dropdown
+      next = [genderId];
+    } else {
+      next = [...selected.filter((id) => id !== genderId), categoryId];
+    }
+    updateFilters({ ...genderFilters, [genderId]: next }, onSaleOnly);
   };
 
   const { data: products = [], isLoading: productsLoading } =
@@ -38,7 +56,7 @@ const Productpage = () => {
 
   const { data: categories = [] } = useGetCategories();
 
-  const filteredProducts = filterProducts(products, selectedCategories, onSaleOnly);
+  const filteredProducts = filterProducts(products, genderFilters, onSaleOnly);
 
   if (productsLoading) {
     return <p className="p-4">Laddar produkter...</p>;
@@ -48,10 +66,11 @@ const Productpage = () => {
     <section className="px-4 py-8">
       <FilterComponent
         categories={categories}
-        selectedCategories={selectedCategories}
+        genderFilters={genderFilters}
         onToggleCategory={toggleCategory}
         onSaleOnly={onSaleOnly}
-        onToggleOnSaleOnly={() => updateFilters(selectedCategories, !onSaleOnly)}
+        onToggleOnSaleOnly={() => updateFilters(genderFilters, !onSaleOnly)}
+        onClearFilters={() => updateFilters({}, false)}
       />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
