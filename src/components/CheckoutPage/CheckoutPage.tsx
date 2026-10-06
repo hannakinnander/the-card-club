@@ -42,7 +42,6 @@ const CheckoutPage = () => {
       setIsOrderConfirmed(true);
       clearCart();
       navigate(`/confirmation/${placedOrder.id}`);
-      console.log(placedOrder.id);
     } catch (error) {
       setError((error as Error).message);
     } finally {
