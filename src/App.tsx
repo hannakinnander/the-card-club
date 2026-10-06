@@ -11,7 +11,6 @@ import ConfirmationPage from "./components/ConfirmationPage/ConfirmationPage";
 
 const App = () => {
   return (
-
     <CartProvider>
       <Header />
       <Routes>
@@ -27,11 +26,10 @@ const App = () => {
         <Route path="/:id" element={<DetailPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/confirmation" element={<ConfirmationPage />} />
+        <Route path="/confirmation/:id" element={<ConfirmationPage />} />
       </Routes>
       <Footer />
     </CartProvider>
-
   );
 };
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import CartItem from "../common/CartItem";
 import QuantityChanger from "./QuantityChanger";
@@ -7,6 +7,7 @@ import Total from "../common/Total";
 const CartPage = () => {
   const { orderItems } = useCart();
   const savedFilters = sessionStorage.getItem("productFilters");
+  const navigate = useNavigate();
 
   const cartContent = () => {
     if (orderItems.length === 0) {
@@ -34,7 +35,13 @@ const CartPage = () => {
       <h2>Varukorg</h2>
       {cartContent()}
       <Total />
-      <Link to="/checkout">Till kassan</Link>
+      <button
+        onClick={() => navigate("/checkout")}
+        disabled={orderItems.length === 0}
+        className={"bg-amber-300 disabled:opacity-50"}
+      >
+        Till kassan
+      </button>
     </div>
   );
 };

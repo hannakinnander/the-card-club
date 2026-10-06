@@ -7,11 +7,11 @@ import { shippingSchema } from "../../types/shipping";
 const shippingMethods = ["Instabox", "Postnord", "DHL"];
 
 interface IProps {
-  shipping?: ShippingType;
-  onSubmit: (type: "shipping", data: ShippingForm) => void;
+  shippingMethod?: ShippingType;
+  onSubmit: (type: "shippingMethod", data: ShippingForm) => void;
 }
 
-const ShippingMethodForm = ({ shipping, onSubmit }: IProps) => {
+const ShippingMethodForm = ({ shippingMethod, onSubmit }: IProps) => {
   const {
     register,
     handleSubmit,
@@ -20,22 +20,22 @@ const ShippingMethodForm = ({ shipping, onSubmit }: IProps) => {
     resolver: zodResolver(shippingSchema),
     mode: "onChange",
     defaultValues: {
-      shipping,
+      shippingMethod,
     },
   });
 
   return (
     <form
       className={" flex flex-col w-fit"}
-      onSubmit={handleSubmit((data) => onSubmit("shipping", data))}
+      onSubmit={handleSubmit((data) => onSubmit("shippingMethod", data))}
     >
       {shippingMethods.map((method) => (
         <label key={method}>
-          <input type="radio" value={method} {...register("shipping")} />
+          <input type="radio" value={method} {...register("shippingMethod")} />
           {method}
         </label>
       ))}
-      {errors.shipping && <p>{errors.shipping.message}</p>}
+      {errors.shippingMethod && <p>{errors.shippingMethod.message}</p>}
       <button type="submit" disabled={isSubmitting}>
         Spara
       </button>
