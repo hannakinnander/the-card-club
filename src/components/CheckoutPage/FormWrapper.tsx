@@ -40,9 +40,14 @@ const FormWrapper = ({
   };
   return (
     <div
-      className={`bg-amber-100 w-150 relative rounded-2xl p-2 ${isLocked ? "opacity-50 bg-gray-200 pointer-events-none" : ""}`}
+      className={` relative rounded-2xl p-2 border shadow-lg  ${isLocked ? "opacity-50 bg-gray-200 pointer-events-none shadow-none border-none" : ""} ${isCompleted && !isEditing ? "bg-green-50 shadow-none border-none" : ""} `}
     >
-      <p className={"text-2xl"}>{heading}</p>
+      <p className={"text-2xl"}>
+        {heading}
+        <span className={"text-green-500"}>
+          {isCompleted && !isEditing ? " ✔︎" : ""}
+        </span>
+      </p>
       {renderContent()}
     </div>
   );

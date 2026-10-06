@@ -10,6 +10,7 @@ interface ICartContext {
     product: IProduct,
     change: "increase" | "decrease",
   ) => boolean;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext<ICartContext | null>(null);
@@ -80,9 +81,19 @@ const CartProvider = ({ children }: PropsWithChildren) => {
       return true;
     }
   };
+  const clearCart = () => {
+    setOrderItems([]);
+  };
+
   return (
     <CartContext.Provider
-      value={{ orderItems, addOrderItem, deleteItem, changeQuantity }}
+      value={{
+        orderItems,
+        addOrderItem,
+        deleteItem,
+        changeQuantity,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>
