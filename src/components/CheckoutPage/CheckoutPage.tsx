@@ -11,32 +11,41 @@ import { useState } from "react";
 import type { INewOrder } from "../../types/order";
 import type { PaymentForm } from "../../types/payment";
 import PaymentMethodForm from "./PaymentMethod";
+import { useNavigate } from "react-router-dom";
 
 import type { ICheckoutData } from "../../types/checkoutData";
 import { useCheckout } from "../../hooks/useCheckout";
 
 const CheckoutPage = () => {
-  const { orderItems } = useCart();
+  const { orderItems, clearCart } = useCart();
   const [checkoutData, setCheckoutData] = useState<ICheckoutData>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [editing, setEditing] = useState<
     "customerInfo" | "shipping" | "payment" | null
   >(null);
+  const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
+
   const formsCompleted =
     !!checkoutData.customerInfo &&
     !!checkoutData.shippingMethod &&
     !!checkoutData.paymentMethod;
   const { checkout } = useCheckout();
+  const navigate = useNavigate();
 
   const handleOrder = async () => {
     setIsSubmitting(true);
 
     try {
       const newOrder: INewOrder = createOrder();
-      await checkout(newOrder);
+      const placedOrder = await checkout(newOrder);
+      setIsOrderConfirmed(true);
+      clearCart();
+      navigate(`/confirmation/${placedOrder.id}`);
     } catch (error) {
       setError((error as Error).message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -87,7 +96,7 @@ const CheckoutPage = () => {
 
     setEditing(null);
   };
-  if (orderItems.length === 0) {
+  if (orderItems.length === 0 && !isOrderConfirmed) {
     return <Navigate to="/cart" />;
   }
   return (
