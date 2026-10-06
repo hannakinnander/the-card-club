@@ -8,6 +8,7 @@ import DetailPage from "./components/DetailPage/DetailPage";
 import CartPage from "./components/CartPage/CartPage";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import ConfirmationPage from "./components/ConfirmationPage/ConfirmationPage";
+import "./App.css";
 
 const App = () => {
   return (

@@ -9,7 +9,7 @@ const CartItem = ({ orderItem, children }: IProps) => {
   return (
     <div
       className={
-        "flex items-center justify-between gap-3 text-xs sm:text-sm xl:text-base "
+        "flex items-center justify-between gap-3 text-xs sm:text-sm xl:text-base max-w-200"
       }
     >
       <div className={"flex items-center gap-3"}>
@@ -20,7 +20,7 @@ const CartItem = ({ orderItem, children }: IProps) => {
         />
         <div>
           <p>{orderItem.product.title}</p>
-          <p className={"text-gray-600"}>{`Pris/st: ${orderItem.price} SEK`}</p>
+          <p className={"text-gray-500"}>{`Pris/st: ${orderItem.price} SEK`}</p>
         </div>
       </div>
       {children}

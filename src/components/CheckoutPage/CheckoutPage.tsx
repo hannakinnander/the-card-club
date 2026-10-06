@@ -100,88 +100,97 @@ const CheckoutPage = () => {
     return <Navigate to="/cart" />;
   }
   return (
-    <div>
-      <Link to="/cart">Tillbaka till varukorg</Link>
-      <h2 className={"text-3xl"}>Kassa</h2>
-      <div>
-        <h3 className={""}>Orderöversikt</h3>
-        {orderItems.map((orderItem) => (
-          <div key={orderItem.product.id}>
-            <CartItem
-              orderItem={orderItem}
-            >{`Antal: ${orderItem.quantity}`}</CartItem>
-          </div>
-        ))}
-        <Total />
-      </div>
-      <div className={"flex flex-col gap-2 max-w-150"}>
-        <FormWrapper
-          isLocked={false}
-          isCompleted={!!checkoutData.customerInfo}
-          isEditing={editing === "customerInfo"}
-          onClick={() => setEditing("customerInfo")}
-          heading={"Kundinformation"}
-          summary={
-            checkoutData.customerInfo && (
-              <div>
-                <p>
-                  {checkoutData.customerInfo.firstName}{" "}
-                  {checkoutData.customerInfo.lastName}
-                </p>
-                <p>{checkoutData.customerInfo.address}</p>
-                <p>
-                  {checkoutData.customerInfo.zipCode}{" "}
-                  {checkoutData.customerInfo.city}
-                </p>
-              </div>
-            )
-          }
-        >
-          <CustomerInformationForm
-            customerInfo={checkoutData.customerInfo}
-            onSubmit={onSubmit}
-          />
-        </FormWrapper>
+    <div className={"page-container"}>
+      <Link to="/cart">← Tillbaka till varukorg</Link>
+      <h2 className={""}>Kassa</h2>
 
-        <FormWrapper
-          isLocked={!checkoutData.customerInfo}
-          isCompleted={!!checkoutData.shippingMethod}
-          isEditing={editing === "shipping"}
-          onClick={() => setEditing("shipping")}
-          heading={"Leverans"}
-          summary={
-            checkoutData.shippingMethod && <p>{checkoutData.shippingMethod}</p>
+      <h3 className={""}>Orderöversikt</h3>
+      <div className={"flex flex-wrap gap-10"}>
+        <div
+          className={
+            "flex-1 h-fit p-5 rounded-2xl bg-gray-800 flex flex-col gap-10"
           }
         >
-          <ShippingMethodForm
-            shippingMethod={checkoutData.shippingMethod}
-            onSubmit={onSubmit}
-          />
-        </FormWrapper>
+          {orderItems.map((orderItem) => (
+            <div key={orderItem.product.id}>
+              <CartItem
+                orderItem={orderItem}
+              >{`Antal: ${orderItem.quantity}`}</CartItem>
+            </div>
+          ))}
+          <Total />
+        </div>
+        <div className={"flex flex-col min-w-130 gap-3"}>
+          <FormWrapper
+            isLocked={false}
+            isCompleted={!!checkoutData.customerInfo}
+            isEditing={editing === "customerInfo"}
+            onClick={() => setEditing("customerInfo")}
+            heading={"Kundinformation"}
+            summary={
+              checkoutData.customerInfo && (
+                <div>
+                  <p>
+                    {checkoutData.customerInfo.firstName}{" "}
+                    {checkoutData.customerInfo.lastName}
+                  </p>
+                  <p>{checkoutData.customerInfo.address}</p>
+                  <p>
+                    {checkoutData.customerInfo.zipCode}{" "}
+                    {checkoutData.customerInfo.city}
+                  </p>
+                </div>
+              )
+            }
+          >
+            <CustomerInformationForm
+              customerInfo={checkoutData.customerInfo}
+              onSubmit={onSubmit}
+            />
+          </FormWrapper>
 
-        <FormWrapper
-          isLocked={!checkoutData.shippingMethod}
-          isCompleted={!!checkoutData.paymentMethod}
-          isEditing={editing === "payment"}
-          onClick={() => setEditing("payment")}
-          heading={"Betalning"}
-          summary={
-            checkoutData.paymentMethod && <p>{checkoutData.paymentMethod}</p>
-          }
-        >
-          <PaymentMethodForm
-            paymentMethod={checkoutData.paymentMethod}
-            onSubmit={onSubmit}
-          />
-        </FormWrapper>
-        <p>{error}</p>
-        <button
-          disabled={!formsCompleted || isSubmitting || editing !== null}
-          className={"bg-green-400 disabled:opacity-50"}
-          onClick={handleOrder}
-        >
-          {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
-        </button>
+          <FormWrapper
+            isLocked={!checkoutData.customerInfo}
+            isCompleted={!!checkoutData.shippingMethod}
+            isEditing={editing === "shipping"}
+            onClick={() => setEditing("shipping")}
+            heading={"Leverans"}
+            summary={
+              checkoutData.shippingMethod && (
+                <p>{checkoutData.shippingMethod}</p>
+              )
+            }
+          >
+            <ShippingMethodForm
+              shippingMethod={checkoutData.shippingMethod}
+              onSubmit={onSubmit}
+            />
+          </FormWrapper>
+
+          <FormWrapper
+            isLocked={!checkoutData.shippingMethod}
+            isCompleted={!!checkoutData.paymentMethod}
+            isEditing={editing === "payment"}
+            onClick={() => setEditing("payment")}
+            heading={"Betalning"}
+            summary={
+              checkoutData.paymentMethod && <p>{checkoutData.paymentMethod}</p>
+            }
+          >
+            <PaymentMethodForm
+              paymentMethod={checkoutData.paymentMethod}
+              onSubmit={onSubmit}
+            />
+          </FormWrapper>
+          <p>{error}</p>
+          <button
+            disabled={!formsCompleted || isSubmitting || editing !== null}
+            className={"bg-green-400 disabled:opacity-50"}
+            onClick={handleOrder}
+          >
+            {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
+          </button>
+        </div>
       </div>
     </div>
   );

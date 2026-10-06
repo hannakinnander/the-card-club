@@ -26,7 +26,7 @@ const ShippingMethodForm = ({ shippingMethod, onSubmit }: IProps) => {
 
   return (
     <form
-      className={" flex flex-col w-fit"}
+      className={" flex flex-col"}
       onSubmit={handleSubmit((data) => onSubmit("shippingMethod", data))}
     >
       {shippingMethods.map((method) => (

@@ -24,15 +24,26 @@ const QuantityChanger = ({ orderItem }: IProps) => {
   };
   return (
     <div>
-      <div className={"flex"}>
-        <button onClick={() => handleChange(orderItem.product, "decrease")}>
+      <div className={"flex gap-3 items-center"}>
+        <button
+          className={"amount-btn"}
+          onClick={() => handleChange(orderItem.product, "decrease")}
+        >
           -
         </button>
         <p>{orderItem.quantity}</p>
-        <button onClick={() => handleChange(orderItem.product, "increase")}>
+        <button
+          className={"amount-btn"}
+          onClick={() => handleChange(orderItem.product, "increase")}
+        >
           +
         </button>
-        <button onClick={() => deleteItem(orderItem.product)}>🗑️</button>
+        <button
+          className={"text-xl"}
+          onClick={() => deleteItem(orderItem.product)}
+        >
+          🗑️
+        </button>
       </div>
       <p>{error}</p>
     </div>

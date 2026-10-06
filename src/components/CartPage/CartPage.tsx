@@ -28,7 +28,7 @@ const CartPage = () => {
   };
 
   return (
-    <div>
+    <div className={"page-container"}>
       <Link to={savedFilters ? `/?${savedFilters}` : "/"}>
         ← Fortsätt handla
       </Link>
@@ -38,7 +38,7 @@ const CartPage = () => {
       <button
         onClick={() => navigate("/checkout")}
         disabled={orderItems.length === 0}
-        className={"bg-amber-300 disabled:opacity-50"}
+        className={"bg-amber-300 max-w-75 text-black text-lg"}
       >
         Till kassan
       </button>
