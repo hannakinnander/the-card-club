@@ -1,14 +1,17 @@
 import useCart from "../../hooks/useCart";
+import type { OrderItem } from "../../types/orderItem";
+
+export const calculateTotal = (orderItems: OrderItem[]) => {
+  return orderItems.reduce(
+    (sum, orderItem) => sum + orderItem.quantity * orderItem.price,
+    0,
+  );
+};
 
 const Total = () => {
   const { orderItems } = useCart();
-  const calculateTotal = () => {
-    return orderItems.reduce(
-      (sum, orderItem) => sum + orderItem.quantity * orderItem.price,
-      0,
-    );
-  };
-  return <p>{`Summa: ${calculateTotal()}`}</p>;
+
+  return <p>{`Summa: ${calculateTotal(orderItems)} SEK`}</p>;
 };
 
 export default Total;
