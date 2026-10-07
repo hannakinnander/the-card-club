@@ -23,29 +23,27 @@ const QuantityChanger = ({ orderItem }: IProps) => {
     setError("");
   };
   return (
-    <div>
-      <div className={"flex gap-3 items-center"}>
-        <button
-          className={"amount-btn"}
-          onClick={() => handleChange(orderItem.product, "decrease")}
-        >
-          -
-        </button>
-        <p>{orderItem.quantity}</p>
-        <button
-          className={"amount-btn"}
-          onClick={() => handleChange(orderItem.product, "increase")}
-        >
-          +
-        </button>
-        <button
-          className={"text-xl"}
-          onClick={() => deleteItem(orderItem.product)}
-        >
-          🗑️
-        </button>
-      </div>
-      <p>{error}</p>
+    <div className={"justify-center flex-1 flex gap-3 items-center relative"}>
+      <button
+        className={"amount-btn"}
+        onClick={() => handleChange(orderItem.product, "decrease")}
+      >
+        -
+      </button>
+      <p className={"w-5 text-center"}>{orderItem.quantity}</p>
+      <button
+        className={"amount-btn"}
+        onClick={() => handleChange(orderItem.product, "increase")}
+      >
+        +
+      </button>
+      <button
+        className={"text-xl"}
+        onClick={() => deleteItem(orderItem.product)}
+      >
+        🗑️
+      </button>
+      <p className={"text-xs sm:text-sm absolute -bottom-7"}>{error}</p>
     </div>
   );
 };

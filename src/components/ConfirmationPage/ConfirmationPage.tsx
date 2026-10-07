@@ -19,32 +19,30 @@ const ConfirmationPage = () => {
   }
 
   return (
-    <div
-      className={"flex flex-wrap justify-center p-3 sm:p-10 gap-10 bg-amber-50"}
-    >
+    <div className={"flex flex-wrap justify-center p-3 sm:p-10 gap-10"}>
       <div
         className={
           "flex flex-col items-center justify-center gap-3 flex-1 min-w-fit"
         }
       >
-        <h2 className={"large-text"}>Tack för din order!</h2>
-        <button onClick={() => navigate("/")} className={"bg-amber-200 p-2"}>
+        <h2 className={"large-text text-white"}>Tack för din order!</h2>
+        <button onClick={() => navigate("/")} className={"bg-green-700 p-2"}>
           Till startsidan ⏎
         </button>
       </div>
 
       <div
         className={
-          " relative rounded-2xl w-250 p-5 sm:p-10 flex flex-col gap-3 bg-white "
+          " relative rounded-2xl w-250 p-5 sm:p-10 flex flex-col gap-3 border bg-gray-100 "
         }
       >
         <img
           src="/Logo/Logoicon.png"
           className={"h-15 w-auto absolute top-3 right-3"}
         />
-        <h3 className={"text-xl font-semibold"}>Orderbekräftelse</h3>
+        <h3 className={"text-xl font-semibold "}>Orderbekräftelse</h3>
         <div
-          className={"flex justify-between gap-5 flex-wrap text-xs sm:text-sm"}
+          className={"flex justify-between gap-5 flex-wrap text-xs sm:text-sm "}
         >
           <div className={"min-w-fit"}>
             <p>

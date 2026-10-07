@@ -26,7 +26,7 @@ const Header = () => {
           <svg
             viewBox="0 0 24 24"
             fill="none"
-            stroke="currentColor"
+            stroke="white"
             strokeWidth={2}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -38,7 +38,7 @@ const Header = () => {
           </svg>
 
           {itemCount > 0 && (
-            <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-bold">
+            <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white font-semibold">
               {itemCount}
             </span>
           )}

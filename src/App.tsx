@@ -14,21 +14,23 @@ const App = () => {
   return (
     <CartProvider>
       <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Productpage />
-            </>
-          }
-        />
-        <Route path="/:id" element={<DetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/confirmation/:id" element={<ConfirmationPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Productpage />
+              </>
+            }
+          />
+          <Route path="/:id" element={<DetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/confirmation/:id" element={<ConfirmationPage />} />
+        </Routes>
+      </main>
       <Footer />
     </CartProvider>
   );

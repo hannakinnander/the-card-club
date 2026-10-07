@@ -1,18 +1,17 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AddToCartBtn from "../common/AddToCartBtn";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import { useGetCategories } from "../../hooks/useGetCategories";
-
+import GoBackBtn from "../common/GoBackBtn";
 
 const DetailPage = () => {
   const { id } = useParams();
-
   const {
-      data: product,
-      isLoading: producIsLoading,
-      isError: productIsError,
-      error: productError,
-    } = useGetProduct(id!);
+    data: product,
+    isLoading: producIsLoading,
+    isError: productIsError,
+    error: productError,
+  } = useGetProduct(id!);
 
   const {
     data: productCategories,
@@ -35,22 +34,47 @@ const DetailPage = () => {
   }
 
   return (
-    <div>
-      
-      <img src={`/card-images/${product.img}`} alt={product.title} />
-      <h1>{product.title}</h1>
-       <div>
-       {productCategories.filter((category) => product.category.includes(category.id)).map((category) => (
-        <p key={category.id}>{category.title}</p>
-      ))}
-      </div>
-      <p>{product.description}</p>
-      <p>{product.price} kr</p>
-      <p>Lager: {product.inventory}</p>
-      <AddToCartBtn product={product}>lägg i varukorg</AddToCartBtn> 
+    <div className={"text-white  p-5 sm:p-10 "}>
+      <GoBackBtn>Tillbaka</GoBackBtn>
+      <div
+        className={
+          "flex flex-wrap align-center gap-10 p-10 mt-3 rounded-2xl bg-gray-900"
+        }
+      >
+        <img
+          src={`/card-images/${product.img}`}
+          alt={product.title}
+          className={"h-100 w-auto"}
+        />
+        <div
+          className={" flex flex-col justify-between w-180 p-10 rounded-2xl"}
+        >
+          <h2>{product.title}</h2>
+          <p>{product.description}</p>
+          <p className={"text-lg"}>
+            {product.price} SEK{" "}
+            <span
+              className={`${product.onSale ? "ml-2 pt-1 pb-1 pl-2 pr-2 bg-red-600 rounded-xl text-sm font-bold " : ""}`}
+            >
+              {product.onSale ? "REA!" : ""}
+            </span>
+          </p>
+          <AddToCartBtn product={product}>lägg i varukorg</AddToCartBtn>
 
-     
+          <div className={"flex gap-3 text-sm"}>
+            <p>Lagersaldo: {product.inventory}</p>
+            <p>Kategorier: </p>
+            {productCategories
+              .filter((category) => product.category.includes(category.id))
+              .map((category) => (
+                <p key={category.id} className={""}>
+                  {category.title}
+                </p>
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 export default DetailPage;

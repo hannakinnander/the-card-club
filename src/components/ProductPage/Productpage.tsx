@@ -1,17 +1,12 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import FilterComponent from "./FilterComponent";
-import {
-  filterProducts,
-  GENDERS,
-  type GenderFilters,
-} from "./filterProducts";
+import { filterProducts, GENDERS, type GenderFilters } from "./filterProducts";
 import ProductComponent from "../ProductPage/ProductComponent";
 import { useGetAllProducts } from "../../hooks/useGetAllProducts";
 import { useGetCategories } from "../../hooks/useGetCategories";
 
 const Productpage = () => {
-
   const [searchParams, setSearchParams] = useSearchParams();
   // e.g. ?herrar=3,4,7&damer=2&rea=1
   const genderFilters: GenderFilters = Object.fromEntries(
@@ -21,7 +16,6 @@ const Productpage = () => {
     ]),
   );
   const onSaleOnly = searchParams.get("rea") === "1";
-
 
   useEffect(() => {
     sessionStorage.setItem("productFilters", searchParams.toString());
@@ -59,7 +53,7 @@ const Productpage = () => {
   const filteredProducts = filterProducts(products, genderFilters, onSaleOnly);
 
   if (productsLoading) {
-    return <p className="p-4">Laddar produkter...</p>;
+    return <p className="p-4 text-white">Laddar produkter...</p>;
   }
 
   return (
@@ -79,7 +73,7 @@ const Productpage = () => {
         ))}
 
         {filteredProducts.length === 0 && (
-          <p className="col-span-full text-center text-gray-500">
+          <p className="col-span-full text-center text-gray-200">
             Inga produkter hittades.
           </p>
         )}
@@ -89,4 +83,3 @@ const Productpage = () => {
 };
 
 export default Productpage;
-
