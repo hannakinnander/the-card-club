@@ -157,6 +157,41 @@
       "date": "2026-10-06T09:07:34.538Z",
       "ordernumber": 1791277654538,
       "id": "LOzsll1NDQQ"
+    },
+    {
+      "orderItems": [
+        {
+          "product": {
+            "title": "Alexander Isak",
+            "description": "Alexander Isak, född 21 september 1999 i Solna,är en svensk fotbollsspelare som spelar för Liverpool FC i Premier League och det svenska landslaget.",
+            "price": 500,
+            "category": [
+              "3",
+              "1",
+              "7"
+            ],
+            "onSale": false,
+            "img": "isak.webp",
+            "inventory": 4,
+            "id": "2"
+          },
+          "quantity": 1,
+          "price": 500
+        }
+      ],
+      "customerInfo": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "address": "asd",
+        "zipCode": "22222",
+        "city": "sasd"
+      },
+      "shippingMethod": "Postnord",
+      "paymentMethod": "Swish",
+      "total": 500,
+      "date": "2026-10-07T07:46:31.081Z",
+      "ordernumber": 1791359191081,
+      "id": "bg5OtTGS3oI"
     }
   ],
   "categories": [
@@ -213,7 +248,7 @@
       ],
       "onSale": false,
       "img": "isak.webp",
-      "inventory": 4,
+      "inventory": 3,
       "id": "2"
     },
     {
