@@ -57,7 +57,7 @@ const Productpage = () => {
   }
 
   return (
-    <section className="px-4 py-8">
+    <section className="p-3 ">
       <FilterComponent
         categories={categories}
         genderFilters={genderFilters}
@@ -67,7 +67,7 @@ const Productpage = () => {
         onClearFilters={() => updateFilters({}, false)}
       />
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {filteredProducts.map((product) => (
           <ProductComponent key={product.id} product={product} />
         ))}

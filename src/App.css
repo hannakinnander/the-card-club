@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
+  * {
+    @apply box-border;
+  }
   button {
     @apply cursor-pointer p-2 min-w-fit rounded-md 
     hover:brightness-95 disabled:hover:brightness-100  

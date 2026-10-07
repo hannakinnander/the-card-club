@@ -26,18 +26,26 @@ const ShippingMethodForm = ({ shippingMethod, onSubmit }: IProps) => {
 
   return (
     <form
-      className={" flex flex-col"}
+      className={"flex flex-col gap-2"}
       onSubmit={handleSubmit((data) => onSubmit("shippingMethod", data))}
     >
       {shippingMethods.map((method) => (
         <label key={method}>
-          <input type="radio" value={method} {...register("shippingMethod")} />
+          <input type="radio" value={method} {...register("shippingMethod")} />{" "}
           {method}
         </label>
       ))}
-      {errors.shippingMethod && <p>{errors.shippingMethod.message}</p>}
-      <button type="submit" disabled={isSubmitting}>
-        Spara
+      {errors.shippingMethod && (
+        <p className={"text-sm text-red-600"}>
+          {errors.shippingMethod.message}
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={" bg-black text-sm font-medium text-white"}
+      >
+        OK
       </button>
     </form>
   );

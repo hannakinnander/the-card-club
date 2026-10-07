@@ -25,17 +25,26 @@ const PaymentMethod = ({ paymentMethod, onSubmit }: IProps) => {
   });
 
   return (
-    <form onSubmit={handleSubmit((data) => onSubmit("paymentMethod", data))}>
+    <form
+      className={" flex flex-col gap-2"}
+      onSubmit={handleSubmit((data) => onSubmit("paymentMethod", data))}
+    >
       <label>
-        <input type="radio" value="Kort" {...register("paymentMethod")} />
-        Kort
+        <input type="radio" value="Kort" {...register("paymentMethod")} /> Kort
       </label>
       <label>
-        <input type="radio" value="Swish" {...register("paymentMethod")} />
+        <input type="radio" value="Swish" {...register("paymentMethod")} />{" "}
         Swish
       </label>
-      {errors.paymentMethod && <p>{errors.paymentMethod.message}</p>}
-      <button type="submit">spara</button>
+      {errors.paymentMethod && (
+        <p className={"text-sm text-red-600"}>{errors.paymentMethod.message}</p>
+      )}
+      <button
+        type="submit"
+        className={" bg-black text-sm font-medium text-white"}
+      >
+        OK
+      </button>
     </form>
   );
 };

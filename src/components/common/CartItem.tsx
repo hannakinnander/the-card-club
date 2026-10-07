@@ -9,7 +9,9 @@ const CartItem = ({ orderItem, children }: IProps) => {
   return (
     <div className={"flex text-xs sm:text-sm xl:text-base gap-2 mb-3 "}>
       <div
-        className={"flex flex-col sm:flex-row items-center gap-3 w-50 sm:w-70"}
+        className={
+          "flex flex-col sm:flex-row items-center sm:items-center gap-3 w-50 sm:w-70"
+        }
       >
         <img
           className={"w-10 sm:w-20"}

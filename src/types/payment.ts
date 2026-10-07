@@ -2,8 +2,7 @@ import { z } from "zod";
 
 export const paymentSchema = z.object({
   paymentMethod: z.enum(["Kort", "Swish"], {
-    required_error: "Du måste välja ett fraktalternativ",
-    message: "Något gick fel",
+    message: "Du måste välja ett betalningslternativ",
   }),
 });
 

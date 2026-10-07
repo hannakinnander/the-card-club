@@ -4,11 +4,15 @@ import CartItem from "../common/CartItem";
 import QuantityChanger from "./QuantityChanger";
 import Total from "../common/Total";
 import GoBackBtn from "../common/GoBackBtn";
+import { useEffect } from "react";
 
 const CartPage = () => {
   const { orderItems } = useCart();
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const cartContent = () => {
     if (orderItems.length === 0) {
@@ -30,19 +34,26 @@ const CartPage = () => {
 
   return (
     <div className={"page-container text-white"}>
-      <GoBackBtn>Fortsätt handla</GoBackBtn>
-      <h2 className={""}>Varukorg</h2>
-      <div className={"bg-gray-800 p-5 rounded-2xl min-w-80 min-h-40 xl:w-300"}>
-        {cartContent()}
+      <div className={"flex flex-col gap-5"}>
+        <GoBackBtn>Fortsätt handla</GoBackBtn>
+        <h2 className={""}>Varukorg</h2>
+
+        <div
+          className={
+            "bg-gray-800 p-5 rounded-lg min-w-80 min-h-40 w-full xl:w-300"
+          }
+        >
+          {cartContent()}
+        </div>
+        <Total />
+        <button
+          onClick={() => navigate("/checkout")}
+          disabled={orderItems.length === 0}
+          className={"bg-amber-300 sm:w-75  text-black text-lg"}
+        >
+          Till kassan
+        </button>
       </div>
-      <Total />
-      <button
-        onClick={() => navigate("/checkout")}
-        disabled={orderItems.length === 0}
-        className={"bg-amber-300 sm:w-75  text-black text-lg"}
-      >
-        Till kassan
-      </button>
     </div>
   );
 };
