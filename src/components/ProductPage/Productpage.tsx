@@ -51,17 +51,38 @@ const Productpage = () => {
     updateFilters({ ...genderFilters, [genderId]: next }, onSaleOnly);
   };
 
-  const { data: products = [], isLoading: productsLoading } =
+  const { data: products = [], 
+    isLoading: productsLoading,
+    isError: productsError,
+    error: productsErrorMessage,
+   } =
     useGetAllProducts();
 
-  const { data: categories = [] } = useGetCategories();
+  const { data: categories = [],
+    isLoading: categoriesLoading,
+    isError: categoriesError,
+    error: categoriesErrorMessage,
+   } = useGetCategories();
 
   const filteredProducts = filterProducts(products, genderFilters, onSaleOnly);
 
-  if (productsLoading) {
+  if (productsLoading || categoriesLoading) {
     return <p className="p-4">Laddar produkter...</p>;
+    }
+  if (productsError) {
+    return (
+      <p className="p-4 text-red-500">
+        Fel vid hämtning av produkter: {productsErrorMessage?.message}
+      </p>
+    );
   }
-
+  if (categoriesError) {
+    return (
+      <p className="p-4 text-red-500">
+        Fel vid hämtning av kategorier: {categoriesErrorMessage?.message}
+      </p>
+    );
+  }
   return (
     <section className="px-4 py-8">
       <FilterComponent
