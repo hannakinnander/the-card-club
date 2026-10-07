@@ -2,7 +2,7 @@ const VIDEO_SRC = "/video/neymar.mp4";
 
 const Hero = () => {
   return (
-    <section className="relative h-[50vh] w-full overflow-hidden">
+    <section className="relative h-[50vh] w-full overflow-hidden mt-20">
       <video
         src={VIDEO_SRC}
         autoPlay

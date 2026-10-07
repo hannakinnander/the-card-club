@@ -9,17 +9,20 @@ const Header = () => {
   );
 
   return (
-    <header className="flex items-center justify-between bg-black px-4 py-3 text-white">
+    <header className="fixed z-100 top-0 w-full h-20 flex items-center justify-between ">
+      <div
+        className={"w-full h-full bg-black opacity-70 absolute top-0 "}
+      ></div>
       <Link to="/">
         <img
           src="/Logo/Logoicon.png"
           alt="The Card Club logo"
-          className="h-14 w-auto"
+          className="h-17 w-auto relative ml-2"
         />
       </Link>
 
       <Link to="/cart">
-        <div className="relative">
+        <div className="relative mr-4">
           <svg
             viewBox="0 0 24 24"
             fill="none"
