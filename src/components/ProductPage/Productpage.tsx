@@ -1,17 +1,12 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import FilterComponent from "./FilterComponent";
-import {
-  filterProducts,
-  GENDERS,
-  type GenderFilters,
-} from "./filterProducts";
+import { filterProducts, GENDERS, type GenderFilters } from "./filterProducts";
 import ProductComponent from "../ProductPage/ProductComponent";
 import { useGetAllProducts } from "../../hooks/useGetAllProducts";
 import { useGetCategories } from "../../hooks/useGetCategories";
 
 const Productpage = () => {
-
   const [searchParams, setSearchParams] = useSearchParams();
   // e.g. ?herrar=3,4,7&damer=2&rea=1
   const genderFilters: GenderFilters = Object.fromEntries(
@@ -21,7 +16,6 @@ const Productpage = () => {
     ]),
   );
   const onSaleOnly = searchParams.get("rea") === "1";
-
 
   useEffect(() => {
     sessionStorage.setItem("productFilters", searchParams.toString());
@@ -59,11 +53,11 @@ const Productpage = () => {
   const filteredProducts = filterProducts(products, genderFilters, onSaleOnly);
 
   if (productsLoading) {
-    return <p className="p-4">Laddar produkter...</p>;
+    return <p className="p-4 text-white">Laddar produkter...</p>;
   }
 
   return (
-    <section className="px-4 py-8">
+    <section className="p-3 ">
       <FilterComponent
         categories={categories}
         genderFilters={genderFilters}
@@ -73,13 +67,13 @@ const Productpage = () => {
         onClearFilters={() => updateFilters({}, false)}
       />
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {filteredProducts.map((product) => (
           <ProductComponent key={product.id} product={product} />
         ))}
 
         {filteredProducts.length === 0 && (
-          <p className="col-span-full text-center text-gray-500">
+          <p className="col-span-full text-center text-gray-200">
             Inga produkter hittades.
           </p>
         )}
@@ -89,4 +83,3 @@ const Productpage = () => {
 };
 
 export default Productpage;
-

@@ -7,20 +7,26 @@ interface IProps {
 
 const CartItem = ({ orderItem, children }: IProps) => {
   return (
-    <div className={"flex items-center justify-between max-w-150"}>
-      <div className={"flex items-center gap-3"}>
+    <div className={"flex text-xs sm:text-sm xl:text-base gap-2 mb-3 "}>
+      <div
+        className={
+          "flex flex-col sm:flex-row items-center sm:items-center gap-3 w-50 sm:w-70"
+        }
+      >
         <img
-          className={"w-20"}
+          className={"w-10 sm:w-20"}
           src={`/card-images/${orderItem.product.img}`}
           alt={orderItem.product.title}
         />
         <div>
           <p>{orderItem.product.title}</p>
-          <p className={"text-sm"}>{`Pris/st: ${orderItem.price} SEK`}</p>
+          <p className={"text-gray-500"}>{`Pris/st: ${orderItem.price} SEK`}</p>
         </div>
       </div>
       {children}
-      <p>{orderItem.quantity * orderItem.price} SEK</p>
+      <p className={"text-end place-self-center w-30 sm:w-50"}>
+        {orderItem.quantity * orderItem.price} SEK
+      </p>
     </div>
   );
 };

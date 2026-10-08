@@ -2,8 +2,7 @@ import { z } from "zod";
 
 export const shippingSchema = z.object({
   shippingMethod: z.enum(["Instabox", "Postnord", "DHL"], {
-    required_error: "Du måste välja ett fraktalternativ",
-    message: "Något gick fel",
+    message: "Du måste välja ett fraktalternativ",
   }),
 });
 
