@@ -47,7 +47,7 @@ const DetailPage = () => {
       <p>{product.description}</p>
       <p>{product.price} kr</p>
       <p>Lager: {product.inventory}</p>
-      <AddToCartBtn product={product}>lägg i varukorg</AddToCartBtn> 
+      <AddToCartBtn product={product} />
 
      
     </div>

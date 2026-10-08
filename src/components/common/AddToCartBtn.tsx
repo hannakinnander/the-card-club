@@ -1,24 +1,38 @@
-import type { ReactNode } from "react";
 import useCart from "../../hooks/useCart";
 import type { IProduct } from "../../types/product";
 
-const AddToCartBtn = ({
-  product,
-  children,
-  className,
-}: {
+interface AddToCartBtnProps {
   product: IProduct;
-  children: ReactNode;
   className?: string;
-}) => {
-  const { addOrderItem } = useCart();
+}
+
+const AddToCartBtn = ({ product, className }: AddToCartBtnProps) => {
+  const { orderItems, addOrderItem } = useCart();
+  const quantityInCart =
+    orderItems.find((orderItem) => orderItem.product.id === product.id)
+      ?.quantity ?? 0;
+  const outOfStock = product.inventory === 0;
+  const maxReached = !outOfStock && quantityInCart >= product.inventory;
+
+  let label = "Lägg i varukorg";
+  if (outOfStock) {
+    label = "Slut i lager";
+  } else if (maxReached) {
+    label = `Max antal i varukorg (${quantityInCart} st)`;
+  } else if (quantityInCart > 0) {
+    label = `Lägg till fler (${quantityInCart} i varukorg)`;
+  }
+
   return (
     <button
-      disabled={product.inventory === 0}
+      disabled={outOfStock || maxReached}
       onClick={() => addOrderItem(product)}
-      className={className}
+      className={
+        className ??
+        "w-full rounded bg-black px-3 py-1.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:bg-gray-300"
+      }
     >
-      {children}
+      {label}
     </button>
   );
 };
