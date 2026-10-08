@@ -59,11 +59,7 @@ const DetailPage = () => {
               {product.onSale ? "REA!" : ""}
             </span>
           </p>
-<<<<<<< HEAD
           <AddToCartBtn product={product}></AddToCartBtn>
-=======
-          <AddToCartBtn product={product}>lägg i varukorg</AddToCartBtn>
->>>>>>> 0487fd4478f2ea7d4c844930d4d815419ccff9e9
 
           <div className={"flex gap-3 text-sm"}>
             <p>Lagersaldo: {product.inventory}</p>
