@@ -8,30 +8,31 @@ import DetailPage from "./components/DetailPage/DetailPage";
 import CartPage from "./components/CartPage/CartPage";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import ConfirmationPage from "./components/ConfirmationPage/ConfirmationPage";
+import "./App.css";
 
 const App = () => {
   return (
-
     <CartProvider>
       <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Productpage />
-            </>
-          }
-        />
-        <Route path="/:id" element={<DetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/confirmation" element={<ConfirmationPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Productpage />
+              </>
+            }
+          />
+          <Route path="/:id" element={<DetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/confirmation/:id" element={<ConfirmationPage />} />
+        </Routes>
+      </main>
       <Footer />
     </CartProvider>
-
   );
 };
 

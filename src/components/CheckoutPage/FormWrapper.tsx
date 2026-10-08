@@ -24,7 +24,7 @@ const FormWrapper = ({
       return children;
     } else if (isCompleted) {
       return (
-        <div className={""}>
+        <div className={"text-black"}>
           {summary}
           <button
             className={"absolute top-2 right-2 text-xl"}
@@ -40,9 +40,14 @@ const FormWrapper = ({
   };
   return (
     <div
-      className={`bg-amber-100 w-150 relative rounded-2xl p-2 ${isLocked ? "opacity-50 bg-gray-200 pointer-events-none" : ""}`}
+      className={`text-black  relative rounded-lg p-2 border shadow-lg ${!isLocked && !isEditing ? "bg-amber-300" : ""} ${isLocked ? "opacity-40 bg-gray-100 pointer-events-none shadow-none border-none" : ""} ${isCompleted && !isEditing ? "bg-green-100 opacity-90 shadow-none border-none" : " "} ${isEditing ? "bg-gray-200" : ""} `}
     >
-      <p className={"text-2xl"}>{heading}</p>
+      <p className={"text-2xl"}>
+        {heading}
+        <span className={"text-green-500"}>
+          {isCompleted && !isEditing ? " ✔︎" : ""}
+        </span>
+      </p>
       {renderContent()}
     </div>
   );

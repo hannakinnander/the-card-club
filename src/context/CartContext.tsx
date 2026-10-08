@@ -1,4 +1,9 @@
-import { createContext, useState, type PropsWithChildren } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  type PropsWithChildren,
+} from "react";
 import { type OrderItem } from "../types/orderItem";
 import type { IProduct } from "../types/product";
 
@@ -10,12 +15,26 @@ interface ICartContext {
     product: IProduct,
     change: "increase" | "decrease",
   ) => boolean;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext<ICartContext | null>(null);
 
+const CART_STORAGE_KEY = "cart";
+
 const CartProvider = ({ children }: PropsWithChildren) => {
-  const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
+  const [orderItems, setOrderItems] = useState<OrderItem[]>(() => {
+    try {
+      const saved = localStorage.getItem(CART_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(orderItems));
+  }, [orderItems]);
 
   const addOrderItem = (product: IProduct) => {
     const existingItem = orderItems.find(
@@ -80,9 +99,19 @@ const CartProvider = ({ children }: PropsWithChildren) => {
       return true;
     }
   };
+  const clearCart = () => {
+    setOrderItems([]);
+  };
+
   return (
     <CartContext.Provider
-      value={{ orderItems, addOrderItem, deleteItem, changeQuantity }}
+      value={{
+        orderItems,
+        addOrderItem,
+        deleteItem,
+        changeQuantity,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>

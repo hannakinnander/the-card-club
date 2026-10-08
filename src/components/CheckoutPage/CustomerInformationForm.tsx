@@ -48,9 +48,9 @@ const CustomerInformationForm = ({ customerInfo, onSubmit }: IProps) => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={"rounded bg-black px-3 py-2 text-sm font-medium text-white"}
+        className={" bg-black text-sm font-medium text-white"}
       >
-        Spara och fortsätt
+        OK
       </button>
     </form>
   );
