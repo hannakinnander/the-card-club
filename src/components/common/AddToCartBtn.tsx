@@ -18,7 +18,7 @@ const AddToCartBtn = ({ product, className }: AddToCartBtnProps) => {
   if (outOfStock) {
     label = "Slut i lager";
   } else if (maxReached) {
-    label = `Max antal i varukorg (${quantityInCart} st)`;
+    label = `Maxantal i varukorg (${quantityInCart} st)`;
   } else if (quantityInCart > 0) {
     label = `Lägg till fler (${quantityInCart} i varukorg)`;
   }

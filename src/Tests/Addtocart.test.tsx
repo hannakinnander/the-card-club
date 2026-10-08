@@ -1,4 +1,3 @@
-import ProductComponent from "../components/ProductPage/ProductComponent";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach } from "vitest";
@@ -6,6 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 import type { IProduct } from "../types/product";
 import CartProvider from "../context/CartContext";
 import useCart from "../hooks/useCart";
+import AddToCartBtn from "../components/common/AddToCartBtn";
 
 const product: IProduct = {
   id: "1",
@@ -35,7 +35,7 @@ const renderProduct = () =>
   render(
     <MemoryRouter>
       <CartProvider>
-        <ProductComponent product={product} />
+        <AddToCartBtn product={product} />
         <CartContents />
       </CartProvider>
     </MemoryRouter>,
@@ -60,7 +60,7 @@ describe("Lägg i varukorg-knappen", () => {
     expect(cart.textContent).toBe("Isak: 1");
 
     await user.click(button);
-    expect(button.textContent).toBe("Slut i lager");
+    expect(button.textContent).toBe("Maxantal i varukorg (2 st)");
     expect((button as HTMLButtonElement).disabled).toBe(true);
     expect(cart.children.length).toBe(1);
     expect(cart.textContent).toBe("Isak: 2");
