@@ -29,7 +29,7 @@ const AddToCartBtn = ({ product, className }: AddToCartBtnProps) => {
       onClick={() => addOrderItem(product)}
       className={
         className ??
-        "w-full rounded bg-black px-3 py-1.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:bg-gray-300"
+        "w-full max-w-30 bg-black px-3 py-1.5 text-sm font-medium text-white"
       }
     >
       {label}
