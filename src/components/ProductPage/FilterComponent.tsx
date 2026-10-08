@@ -55,7 +55,7 @@ const FilterComponent = ({
     categories.filter((category) => ids.includes(category.id));
 
   return (
-    <div className="mb-6 flex flex-wrap items-start gap-2">
+    <div className="mb-6 mt-6 flex flex-wrap items-start gap-2">
       {GENDERS.map((gender) => {
         const title =
           categories.find((category) => category.id === gender.id)?.title ??
