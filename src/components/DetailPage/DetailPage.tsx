@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AddToCartBtn from "../common/AddToCartBtn";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import { useGetCategories } from "../../hooks/useGetCategories";
@@ -59,7 +59,7 @@ const DetailPage = () => {
               {product.onSale ? "REA!" : ""}
             </span>
           </p>
-          <AddToCartBtn product={product}>lägg i varukorg</AddToCartBtn>
+          <AddToCartBtn product={product}></AddToCartBtn>
 
           <div className={"flex gap-3 text-sm"}>
             <p>Lagersaldo: {product.inventory}</p>
@@ -76,5 +76,5 @@ const DetailPage = () => {
       </div>
     </div>
   );
-};
+}
 export default DetailPage;
