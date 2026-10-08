@@ -27,11 +27,13 @@ const FilterComponent = ({
   // Close open dropdowns when clicking outside them or pressing Escape
   useEffect(() => {
     const closeDropdowns = (event: Event) => {
-      document.querySelectorAll("details[data-dropdown][open]").forEach((el) => {
-        const clickedInside =
-          event instanceof PointerEvent && el.contains(event.target as Node);
-        if (!clickedInside) el.removeAttribute("open");
-      });
+      document
+        .querySelectorAll("details[data-dropdown][open]")
+        .forEach((el) => {
+          const clickedInside =
+            event instanceof PointerEvent && el.contains(event.target as Node);
+          if (!clickedInside) el.removeAttribute("open");
+        });
     };
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeDropdowns(event);
@@ -88,7 +90,10 @@ const FilterComponent = ({
             </summary>
 
             <div className="absolute left-0 z-10 mt-2 w-48 rounded-lg border border-gray-200 bg-white p-3 shadow-lg">
-              {checkbox({ id: gender.id, title }, `Alla ${title.toLowerCase()}`)}
+              {checkbox(
+                { id: gender.id, title },
+                `Alla ${title.toLowerCase()}`,
+              )}
 
               <p className="mt-2 text-xs font-semibold text-gray-500 uppercase">
                 Land
@@ -107,7 +112,7 @@ const FilterComponent = ({
       {hasActiveFilters && (
         <button
           onClick={onClearFilters}
-          className="rounded-full px-4 py-1 text-sm font-medium text-gray-600 underline hover:text-black"
+          className="rounded-full px-4 py-1 text-sm font-medium text-gray-300 underline hover:text-white"
         >
           Ta bort filter
         </button>

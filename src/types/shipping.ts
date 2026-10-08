@@ -1,12 +1,11 @@
 import { z } from "zod";
 
 export const shippingSchema = z.object({
-  shipping: z.enum(["Instabox", "Postnord", "DHL"], {
-    required_error: "Du måste välja ett fraktalternativ",
-    message: "Något gick fel",
+  shippingMethod: z.enum(["Instabox", "Postnord", "DHL"], {
+    message: "Du måste välja ett fraktalternativ",
   }),
 });
 
 export type ShippingForm = z.infer<typeof shippingSchema>;
 
-export type ShippingType = ShippingForm["shipping"];
+export type ShippingType = ShippingForm["shippingMethod"];

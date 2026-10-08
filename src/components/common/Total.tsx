@@ -11,7 +11,7 @@ export const calculateTotal = (orderItems: OrderItem[]) => {
 const Total = () => {
   const { orderItems } = useCart();
 
-  return <p>{`Summa: ${calculateTotal(orderItems)} SEK`}</p>;
+  return <p className={""}>{`Summa: ${calculateTotal(orderItems)} SEK`}</p>;
 };
 
 export default Total;
