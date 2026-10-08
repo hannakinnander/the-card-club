@@ -7,10 +7,8 @@ import { calculateTotal } from "../common/Total";
 const ConfirmationPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  if (!id) {
-    return <p>Något gick fel, kan inte hämta order.</p>;
-  }
-  const { data: order, isLoading, isSuccess, isError } = useGetOrder(id);
+
+  const { data: order, isLoading, isSuccess, isError } = useGetOrder(id!);
 
   if (!isSuccess) {
     return (
