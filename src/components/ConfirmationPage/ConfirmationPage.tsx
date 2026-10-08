@@ -10,13 +10,26 @@ const ConfirmationPage = () => {
   if (!id) {
     return <p>Något gick fel, kan inte hämta order.</p>;
   }
-  const { data: order, isLoading, isSuccess } = useGetOrder(id);
+  const { data: order, isLoading, isSuccess, isError } = useGetOrder(id);
 
   if (!isSuccess) {
     return (
-      <p
-        className={"text-red-600"}
-      >{`${isLoading ? "Laddar..." : "Kunde inte hämta order. Vänligen kontakta kundtjänst."}`}</p>
+      <div className={"page-container"}>
+        <p
+          className={`${isError ? "text-red-600" : "text-white"}`}
+        >{`${isLoading ? "Laddar..." : "Kunde inte hämta order. Vänligen kontakta kundtjänst."}`}</p>
+
+        {isError ? (
+          <button
+            onClick={() => navigate("/")}
+            className={"bg-green-700 p-2 w-fit"}
+          >
+            Till startsidan ⏎
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
     );
   }
 
