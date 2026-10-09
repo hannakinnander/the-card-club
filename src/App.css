@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  button {
+    @apply cursor-pointer p-2 min-w-fit rounded-md 
+    hover:brightness-110 disabled:hover:brightness-100  
+    disabled:cursor-not-allowed  disabled:opacity-50;
+  }
+  h2 {
+    @apply text-2xl xl:text-4xl;
+  }
+  h3 {
+    @apply text-lg xl:text-xl;
+  }
+
+  body {
+    @apply bg-gray-950;
+  }
+  main {
+    @apply mt-20 min-h-dvh w-dvw;
+  }
+}
+
+@utility amount-btn {
+  @apply cursor-pointer text-base w-6 rounded bg-gray-50 text-black text-center  hover:brightness-80;
+}
+
+@utility page-container {
+  @apply flex flex-col  gap-5 p-3 sm:p-10 bg-gray-950 xl:items-center;
+}

@@ -1,0 +1,42 @@
+import type { IProduct } from "../types/product";
+
+const API_URL = "http://localhost:3000/products";
+
+export const getAllProducts = async (): Promise<IProduct[]> => {
+  const response = await fetch(API_URL);
+
+  if (!response.ok) {
+    throw new Error("Kunde inte hämta produkter");
+  }
+  return response.json();
+};
+
+export const getProduct = async (id: string): Promise<IProduct> => {
+  const response = await fetch(`${API_URL}/${id}`);
+  if (!response.ok) {
+    throw new Error("Kunde inte hämta produkt");
+  }
+  return response.json();
+};
+
+export const updateInventory = async ({
+  id,
+  inventory,
+}: {
+  id: string;
+  inventory: number;
+}): Promise<IProduct> => {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ inventory }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Kunde inte uppdatera lagersaldo");
+  }
+
+  return response.json();
+};

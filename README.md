@@ -1,75 +1,67 @@
-# React + TypeScript + Vite
+# The Card Club
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Webbshop - Projektarbete för att praktisera teknikerna vi lärt oss med React.
 
-Currently, two official plugins are available:
+## Om projektet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Vår webbshop säljer fotbollskort.
 
-## React Compiler
+Varje fotbollskort tillhör tre olika kategorityper:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Kön** – Damer, Herrar
+- **Nationalitet** – Sverige, Spanien, England, Frankrike
+- **Position** – Målvakt, Försvarare, Mittfältare, Anfallare
 
-## Expanding the ESLint configuration
+En produkt kan alltså ha ett värde från varje kategorityp, exempelvis:
+**Herrar + Spanien + Anfallare**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Kom igång
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installera depencencies, starta projektet
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```terminal
+npm install
+npm run start
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Kör tester
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```terminal
+npm run test
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Övergripande struktur
 
+Alla komponentmappar utöver common, header och footer motsvarar en Route och innehåller komponenter som endast hör till respektive Route.
+
+```text
+the-card-club/
+├── public/
+│       ├── card-images/ *Produktbilder*
+│       ├── Logo/ *Vår logga*
+│       └── video/ *Hero-video*
+├── src/
+│   ├── api/
+│   ├── components/
+│   │   ├── common/ *Komponenter som återanvänds*
+│   │   ├── ProductPage/
+│   │   ├── DetailPage/
+│   │   ├── CartPage/
+│   │   ├── CheckoutPage/
+│   │   ├── ConfirmationPage/
+│   │   ├── Header/
+│   │   └── Footer/
+│   │
+│   ├── context/
+│   │   └── CartContext/
+│   │
+│   ├── tests/
+│   ├── hooks/
+│   ├── types/
+│   └── App.tsx
+│
+├── db.json
+├── package.json
+├── package-lock.json
+└── README.md
 ```
