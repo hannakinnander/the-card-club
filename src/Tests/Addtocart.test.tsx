@@ -55,12 +55,12 @@ describe("Lägg i varukorg-knappen", () => {
     expect(cart.children.length).toBe(0);
 
     await user.click(button);
-    expect(button.textContent).toBe("Lägg till fler (1 i varukorg)");
+    expect(button.textContent).toBe("Lägg till fler (1)");
     expect(cart.children.length).toBe(1);
     expect(cart.textContent).toBe("Isak: 1");
 
     await user.click(button);
-    expect(button.textContent).toBe("Maxantal i varukorg (2 st)");
+    expect(button.textContent).toBe("Max i varukorg (2 st)");
     expect((button as HTMLButtonElement).disabled).toBe(true);
     expect(cart.children.length).toBe(1);
     expect(cart.textContent).toBe("Isak: 2");

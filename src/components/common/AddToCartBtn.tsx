@@ -18,19 +18,16 @@ const AddToCartBtn = ({ product, className }: AddToCartBtnProps) => {
   if (outOfStock) {
     label = "Slut i lager";
   } else if (maxReached) {
-    label = `Maxantal i varukorg (${quantityInCart} st)`;
+    label = `Max i varukorg (${quantityInCart} st)`;
   } else if (quantityInCart > 0) {
-    label = `Lägg till fler (${quantityInCart} i varukorg)`;
+    label = `Lägg till fler (${quantityInCart})`;
   }
 
   return (
     <button
       disabled={outOfStock || maxReached}
       onClick={() => addOrderItem(product)}
-      className={
-        className ??
-        "w-full max-w-30 bg-black px-3 py-1.5 text-sm font-medium text-white"
-      }
+      className={`${className} bg-green-800 inset-shadow-green-500 inset-shadow-sm/80 0 text-sm font-medium text-gray-50 disabled:inset-shadow-none`}
     >
       {label}
     </button>

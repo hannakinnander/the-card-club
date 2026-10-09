@@ -33,15 +33,13 @@ const CartPage = () => {
   };
 
   return (
-    <div className={"page-container text-white"}>
-      <div className={"flex flex-col gap-5"}>
+    <div className="page-container text-white">
+      <div className="flex flex-col gap-5">
         <GoBackBtn>Fortsätt handla</GoBackBtn>
-        <h2 className={""}>Varukorg</h2>
+        <h2>Varukorg</h2>
 
         <div
-          className={
-            "bg-gray-800 p-5 rounded-lg min-w-80 min-h-40 w-full xl:w-300"
-          }
+          className={`bg-gray-800 p-5 rounded-lg w-full ${orderItems.length === 0 ? "max-w-200 h-40" : "sm:max-w-fit"}`}
         >
           {cartContent()}
         </div>
@@ -49,7 +47,7 @@ const CartPage = () => {
         <button
           onClick={() => navigate("/checkout")}
           disabled={orderItems.length === 0}
-          className={"bg-amber-300 sm:w-75  text-black text-lg"}
+          className="bg-amber-500 sm:w-75  text-black text-lg"
         >
           Till kassan
         </button>
