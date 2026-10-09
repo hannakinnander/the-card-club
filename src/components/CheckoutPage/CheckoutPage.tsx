@@ -100,97 +100,99 @@ const CheckoutPage = () => {
     return <Navigate to="/cart" />;
   }
   return (
-    <div className={"page-container text-white"}>
-      <div className={"flex flex-col gap-5"}>
-        <Link to="/cart">← Tillbaka till varukorg</Link>
-        <h2 className={""}>Kassa</h2>
-        <h3 className={""}>Orderöversikt</h3>
-
-        <div
-          className={
-            " h-fit p-5 rounded-lg bg-gray-800 flex flex-col gap-10 w-full xl:w-300"
-          }
-        >
-          {orderItems.map((orderItem) => (
-            <div key={orderItem.product.id}>
-              <CartItem orderItem={orderItem}>
-                <p
-                  className={"self-center flex-1 text-center"}
-                >{`Antal: ${orderItem.quantity}`}</p>
-              </CartItem>
-            </div>
-          ))}
-          <Total />
+    <div className="page-container text-white">
+      <div>
+        <div className="flex flex-col gap-5">
+          <Link to="/cart">← Tillbaka till varukorg</Link>
+          <h2>Kassa</h2>
+          <h3 className="mb-2">Orderöversikt</h3>
         </div>
-      </div>
-      <div className={"flex flex-col gap-5 w-full max-w-150"}>
-        <FormWrapper
-          isLocked={false}
-          isCompleted={!!checkoutData.customerInfo}
-          isEditing={editing === "customerInfo"}
-          onClick={() => setEditing("customerInfo")}
-          heading={"Kundinformation"}
-          summary={
-            checkoutData.customerInfo && (
-              <div>
-                <p>
-                  {checkoutData.customerInfo.firstName}{" "}
-                  {checkoutData.customerInfo.lastName}
-                </p>
-                <p>{checkoutData.customerInfo.address}</p>
-                <p>
-                  {checkoutData.customerInfo.zipCode}{" "}
-                  {checkoutData.customerInfo.city}
-                </p>
+        <div className="flex flex-wrap gap-5 justify-center">
+          <div className=" h-fit p-5 rounded-lg bg-gray-800 flex flex-col flex-1">
+            {orderItems.map((orderItem) => (
+              <div key={orderItem.product.id}>
+                <CartItem orderItem={orderItem}>
+                  <p className="self-center flex-1 text-center min-w-fit">{`Antal: ${orderItem.quantity}`}</p>
+                </CartItem>
               </div>
-            )
-          }
-        >
-          <CustomerInformationForm
-            customerInfo={checkoutData.customerInfo}
-            onSubmit={onSubmit}
-          />
-        </FormWrapper>
+            ))}
+            <Total />
+          </div>
 
-        <FormWrapper
-          isLocked={!checkoutData.customerInfo}
-          isCompleted={!!checkoutData.shippingMethod}
-          isEditing={editing === "shipping"}
-          onClick={() => setEditing("shipping")}
-          heading={"Leverans"}
-          summary={
-            checkoutData.shippingMethod && <p>{checkoutData.shippingMethod}</p>
-          }
-        >
-          <ShippingMethodForm
-            shippingMethod={checkoutData.shippingMethod}
-            onSubmit={onSubmit}
-          />
-        </FormWrapper>
+          <div className="flex flex-col gap-5 max-w-100 min-w-70 flex-1">
+            <FormWrapper
+              isLocked={false}
+              isCompleted={!!checkoutData.customerInfo}
+              isEditing={editing === "customerInfo"}
+              onClick={() => setEditing("customerInfo")}
+              heading={"Kundinformation"}
+              summary={
+                checkoutData.customerInfo && (
+                  <div>
+                    <p>
+                      {checkoutData.customerInfo.firstName}{" "}
+                      {checkoutData.customerInfo.lastName}
+                    </p>
+                    <p>{checkoutData.customerInfo.address}</p>
+                    <p>
+                      {checkoutData.customerInfo.zipCode}{" "}
+                      {checkoutData.customerInfo.city}
+                    </p>
+                  </div>
+                )
+              }
+            >
+              <CustomerInformationForm
+                customerInfo={checkoutData.customerInfo}
+                onSubmit={onSubmit}
+              />
+            </FormWrapper>
 
-        <FormWrapper
-          isLocked={!checkoutData.shippingMethod}
-          isCompleted={!!checkoutData.paymentMethod}
-          isEditing={editing === "payment"}
-          onClick={() => setEditing("payment")}
-          heading={"Betalning"}
-          summary={
-            checkoutData.paymentMethod && <p>{checkoutData.paymentMethod}</p>
-          }
-        >
-          <PaymentMethodForm
-            paymentMethod={checkoutData.paymentMethod}
-            onSubmit={onSubmit}
-          />
-        </FormWrapper>
-        <p>{error}</p>
-        <button
-          disabled={!formsCompleted || isSubmitting || editing !== null}
-          className={"bg-green-400 disabled:opacity-50 text-black"}
-          onClick={handleOrder}
-        >
-          {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
-        </button>
+            <FormWrapper
+              isLocked={!checkoutData.customerInfo}
+              isCompleted={!!checkoutData.shippingMethod}
+              isEditing={editing === "shipping"}
+              onClick={() => setEditing("shipping")}
+              heading={"Leverans"}
+              summary={
+                checkoutData.shippingMethod && (
+                  <p>{checkoutData.shippingMethod}</p>
+                )
+              }
+            >
+              <ShippingMethodForm
+                shippingMethod={checkoutData.shippingMethod}
+                onSubmit={onSubmit}
+              />
+            </FormWrapper>
+
+            <FormWrapper
+              isLocked={!checkoutData.shippingMethod}
+              isCompleted={!!checkoutData.paymentMethod}
+              isEditing={editing === "payment"}
+              onClick={() => setEditing("payment")}
+              heading={"Betalning"}
+              summary={
+                checkoutData.paymentMethod && (
+                  <p>{checkoutData.paymentMethod}</p>
+                )
+              }
+            >
+              <PaymentMethodForm
+                paymentMethod={checkoutData.paymentMethod}
+                onSubmit={onSubmit}
+              />
+            </FormWrapper>
+            <p>{error}</p>
+            <button
+              disabled={!formsCompleted || isSubmitting || editing !== null}
+              className="bg-green-600 text-black"
+              onClick={handleOrder}
+            >
+              {`${isSubmitting ? "Behandlar order" : "Bekräfta order"}`}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

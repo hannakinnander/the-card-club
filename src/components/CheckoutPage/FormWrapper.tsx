@@ -24,12 +24,9 @@ const FormWrapper = ({
       return children;
     } else if (isCompleted) {
       return (
-        <div className={"text-black"}>
+        <div className="text-white text-sm">
           {summary}
-          <button
-            className={"absolute top-2 right-2 text-xl"}
-            onClick={onClick}
-          >
+          <button className="absolute top-2 right-2 text-xl" onClick={onClick}>
             ✎
           </button>
         </div>
@@ -40,11 +37,11 @@ const FormWrapper = ({
   };
   return (
     <div
-      className={`text-black  relative rounded-lg p-2 border shadow-lg ${!isLocked && !isEditing ? "bg-amber-300" : ""} ${isLocked ? "opacity-40 bg-gray-100 pointer-events-none shadow-none border-none" : ""} ${isCompleted && !isEditing ? "bg-green-100 opacity-90 shadow-none border-none" : " "} ${isEditing ? "bg-gray-200" : ""} `}
+      className={`text-white relative rounded-lg p-2 border border-red-900 bg-gray-800 ${isLocked && "opacity-40 pointer-events-none shadow-none border-none"} ${isCompleted && !isEditing && "opacity-90 shadow-none border-none"}`}
     >
-      <p className={"text-2xl"}>
+      <p className="text-2xl mb-2">
         {heading}
-        <span className={"text-green-500"}>
+        <span className="text-green-500">
           {isCompleted && !isEditing ? " ✔︎" : ""}
         </span>
       </p>

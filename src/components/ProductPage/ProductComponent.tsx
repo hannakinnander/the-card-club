@@ -8,9 +8,11 @@ interface ProductComponentProps {
 
 const ProductComponent = ({ product }: ProductComponentProps) => {
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border bg-gray-200">
+    <div
+      className={`flex flex-col overflow-hidden rounded-lg  bg-gray-800 ${product.inventory === 0 ? "brightness-70" : "shadow-amber-50/40 shadow-md"}`}
+    >
       <Link to={`/details/${product.id}`} className="flex flex-1 flex-col">
-        <div className="relative bg-gray-100">
+        <div className="relative">
           <img
             src={`/card-images/${product.img}`}
             alt={product.title}
@@ -22,15 +24,15 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
             </span>
           )}
         </div>
-        <div className="flex flex-1 flex-col gap-1 p-3">
+        <div className="flex flex-1 flex-col gap-1 p-3 bg-black text-white">
           <h3 className="text-sm font-semibold">{product.title}</h3>
           <p className="mt-auto text-sm font-bold">
-            {product.price != null ? `${product.price} kr` : "Pris saknas"}
+            {product.price != null ? `${product.price} SEK` : "Pris saknas"}
           </p>
         </div>
       </Link>
-      <div className="px-3 pb-3">
-        <AddToCartBtn product={product} />
+      <div className="px-3 pb-3 bg-black">
+        <AddToCartBtn product={product} className={"w-full"} />
       </div>
     </div>
   );

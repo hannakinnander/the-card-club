@@ -33,22 +33,24 @@ const CustomerInformationForm = ({ customerInfo, onSubmit }: IProps) => {
     >
       {fields.map(({ name, label }) => (
         <div key={name} className={"flex flex-col"}>
-          <label htmlFor={name}>{label}</label>
+          <label className="text-sm" htmlFor={name}>
+            {label}
+          </label>
           <input
             id={name}
             {...register(name)}
             {...(name === "zipCode" && { inputMode: "numeric", maxLength: 5 })}
-            className={"rounded border bg-white px-2 py-1"}
+            className="rounded  bg-white/70 px-2 py-1 text-black text-sm"
           />
           {errors[name] && (
-            <p className={"text-sm text-red-600"}>{errors[name].message}</p>
+            <p className="text-sm text-red-600">{errors[name].message}</p>
           )}
         </div>
       ))}
       <button
         type="submit"
         disabled={isSubmitting}
-        className={" bg-black text-sm font-medium text-white"}
+        className=" bg-gray-300 border border-black text-sm font-medium text-black"
       >
         OK
       </button>
