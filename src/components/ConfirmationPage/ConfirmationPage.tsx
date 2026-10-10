@@ -3,6 +3,7 @@ import { useGetOrder } from "../../hooks/useGetOrder";
 import dayjs from "dayjs";
 import CartItem from "../common/CartItem";
 import { calculateTotal } from "../common/Total";
+import { useEffect } from "react";
 
 const ConfirmationPage = () => {
   const { id } = useParams();
@@ -15,6 +16,10 @@ const ConfirmationPage = () => {
     isError,
     error,
   } = useGetOrder(id!);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className={"page-container"}>
