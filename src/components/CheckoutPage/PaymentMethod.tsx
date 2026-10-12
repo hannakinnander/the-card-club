@@ -26,7 +26,7 @@ const PaymentMethod = ({ paymentMethod, onSubmit }: IProps) => {
 
   return (
     <form
-      className={" flex flex-col gap-2"}
+      className=" flex flex-col gap-2"
       onSubmit={handleSubmit((data) => onSubmit("paymentMethod", data))}
     >
       <label>
@@ -37,11 +37,11 @@ const PaymentMethod = ({ paymentMethod, onSubmit }: IProps) => {
         Swish
       </label>
       {errors.paymentMethod && (
-        <p className={"text-sm text-red-600"}>{errors.paymentMethod.message}</p>
+        <p className="text-sm text-red-600">{errors.paymentMethod.message}</p>
       )}
       <button
         type="submit"
-        className={" bg-black text-sm font-medium text-white"}
+        className=" bg-gray-300 border border-black text-sm font-medium text-black"
       >
         OK
       </button>

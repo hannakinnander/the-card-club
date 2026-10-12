@@ -36,14 +36,12 @@ const ShippingMethodForm = ({ shippingMethod, onSubmit }: IProps) => {
         </label>
       ))}
       {errors.shippingMethod && (
-        <p className={"text-sm text-red-600"}>
-          {errors.shippingMethod.message}
-        </p>
+        <p className="text-sm text-red-600">{errors.shippingMethod.message}</p>
       )}
       <button
         type="submit"
         disabled={isSubmitting}
-        className={" bg-black text-sm font-medium text-white"}
+        className=" bg-gray-300 border border-black text-sm font-medium text-black"
       >
         OK
       </button>

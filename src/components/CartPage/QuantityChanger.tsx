@@ -23,27 +23,31 @@ const QuantityChanger = ({ orderItem }: IProps) => {
     setError("");
   };
   return (
-    <div className={"justify-center flex-1 flex gap-3 items-center relative"}>
-      <button
+    <div
+      className={
+        "justify-center flex-1 flex h-fit self-center items-center relative"
+      }
+    >
+      <p
         className={"amount-btn"}
         onClick={() => handleChange(orderItem.product, "decrease")}
       >
         -
-      </button>
-      <p className={"w-5 text-center"}>{orderItem.quantity}</p>
-      <button
-        className={"amount-btn"}
+      </p>
+      <p className="w-10 text-center">{orderItem.quantity}</p>
+      <div
+        className="amount-btn"
         onClick={() => handleChange(orderItem.product, "increase")}
       >
         +
-      </button>
+      </div>
       <button
-        className={"text-xl"}
+        className="text-base sm:text-xl"
         onClick={() => deleteItem(orderItem.product)}
       >
         🗑️
       </button>
-      <p className={"text-xs sm:text-sm absolute -bottom-7"}>{error}</p>
+      <p className="text-xs sm:text-sm absolute -bottom-4 ">{error}</p>
     </div>
   );
 };

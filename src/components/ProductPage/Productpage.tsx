@@ -48,26 +48,39 @@ const Productpage = () => {
   const { data: products = [], isLoading: productsLoading } =
     useGetAllProducts();
 
-  const { data: categories = [] } = useGetCategories();
+  const {
+    data: categories,
+    isLoading: categoriesIsLoading,
+    isError: categoriesIsError,
+    error: categoriesError,
+  } = useGetCategories();
 
   const filteredProducts = filterProducts(products, genderFilters, onSaleOnly);
 
   if (productsLoading) {
-    return <p className="p-4 text-white">Laddar produkter...</p>;
+    return <p className="p-10 text-white">Laddar produkter...</p>;
   }
 
   return (
-    <section className="p-3 ">
-      <FilterComponent
-        categories={categories}
-        genderFilters={genderFilters}
-        onToggleCategory={toggleCategory}
-        onSaleOnly={onSaleOnly}
-        onToggleOnSaleOnly={() => updateFilters(genderFilters, !onSaleOnly)}
-        onClearFilters={() => updateFilters({}, false)}
-      />
+    <section className="p-5 lg:p-10 ">
+      {categoriesIsLoading && (
+        <p className="text-white mb-5">Laddar kategorier...</p>
+      )}
+      {categoriesIsError && (
+        <p className="text-red-600 mb-5">{categoriesError.message}</p>
+      )}
+      {categories && (
+        <FilterComponent
+          categories={categories}
+          genderFilters={genderFilters}
+          onToggleCategory={toggleCategory}
+          onSaleOnly={onSaleOnly}
+          onToggleOnSaleOnly={() => updateFilters(genderFilters, !onSaleOnly)}
+          onClearFilters={() => updateFilters({}, false)}
+        />
+      )}
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {filteredProducts.map((product) => (
           <ProductComponent key={product.id} product={product} />
         ))}

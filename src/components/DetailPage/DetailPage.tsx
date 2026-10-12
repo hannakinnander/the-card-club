@@ -3,12 +3,16 @@ import AddToCartBtn from "../common/AddToCartBtn";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import { useGetCategories } from "../../hooks/useGetCategories";
 import GoBackBtn from "../common/GoBackBtn";
+import { useEffect } from "react";
 
 const DetailPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { id } = useParams();
   const {
     data: product,
-    isLoading: producIsLoading,
+    isLoading: productIsLoading,
     isError: productIsError,
     error: productError,
   } = useGetProduct(id!);
@@ -89,5 +93,5 @@ const DetailPage = () => {
       </div>
     </div>
   );
-}
+};
 export default DetailPage;

@@ -13,7 +13,7 @@ const GoBackBtn = ({ children }: IProps) => {
   };
 
   return (
-    <button className={"bg-green-500 text-black w-fit"} onClick={onGoBackClick}>
+    <button className="bg-gray-300 text-black w-fit" onClick={onGoBackClick}>
       ← {children}
     </button>
   );
