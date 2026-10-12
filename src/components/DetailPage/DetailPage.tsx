@@ -24,13 +24,20 @@ const DetailPage = () => {
     return <p>Laddar...</p>;
   }
   if (productIsError) {
-    return <p>fel: {productError.message}</p>;
+    return (
+      <>
+        <GoBackBtn>Tillbaka</GoBackBtn>
+        <p className={"text-red-500"}>Fel: {productError.message}</p>
+      </>
+    );
   }
-  if (categoriesIsError) {
-    return <p>fel: {categoriesError.message}</p>;
-  }
-  if (!product || !productCategories) {
-    return <p>Produkten hittades inte</p>;
+  if (!product) {
+    return (
+      <>
+        <GoBackBtn>Tillbaka</GoBackBtn>
+        <p className={"text-red-500"}>Produkten hittades inte</p>
+      </>
+    );
   }
 
   return (
@@ -64,13 +71,19 @@ const DetailPage = () => {
           <div className={"flex gap-3 text-sm"}>
             <p>Lagersaldo: {product.inventory}</p>
             <p>Kategorier: </p>
-            {productCategories
-              .filter((category) => product.category.includes(category.id))
-              .map((category) => (
-                <p key={category.id} className={""}>
-                  {category.title}
-                </p>
-              ))}
+            {categoriesIsError ? (
+              <p className={"text-red-500"}>
+                {categoriesError.message}
+              </p>
+            ) : (
+              productCategories
+                ?.filter((category) => product.category.includes(category.id))
+                .map((category) => (
+                  <p key={category.id} className={""}>
+                    {category.title}
+                  </p>
+                ))
+            )}
           </div>
         </div>
       </div>
